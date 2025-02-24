@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <>
       <Container>
-        <div className="flex items-center justify-between py-4 sm:flex-row flex-col gap-4">
+        <div className="flex items-center justify-between py-4 sm:flex-row flex-col gap-2 lg:gap-4">
           <Link
             href="/"
             className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
@@ -46,8 +46,8 @@ const Header = () => {
             <Image
               src="/header/house.png"
               alt="phone"
-              width={70}
-              height={70}
+              width={isMobile ? 40 : 70}
+              height={isMobile ? 40 : 70}
             />
             <p className="hidden md:block">
               Гостевой дом <br />
@@ -79,7 +79,6 @@ const Header = () => {
             src="https://yandex.ru/sprav/widget/rating-badge/69363274872"
             width="150"
             height="50"
-            className="hidden sm:block"
           ></iframe>
           <Button>Забронировать</Button>
         </div>
