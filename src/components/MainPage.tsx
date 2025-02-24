@@ -9,7 +9,14 @@ const MainPage = ({ posts }: { posts: any[] }) => {
     <div>
       <h1>Hello World</h1>
 
-      <motion.div
+      <Image
+        src="/phone.png"
+        alt="Profile"
+        width={40}
+        height={40}
+      />
+
+      {/* <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 5 }}
@@ -20,7 +27,7 @@ const MainPage = ({ posts }: { posts: any[] }) => {
           width={1000}
           height={1000}
         />
-      </motion.div>
+      </motion.div> */}
       {posts.map((post) => (
         <div key={post.id}>
           <h2>{post.title}</h2>
