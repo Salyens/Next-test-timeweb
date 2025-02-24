@@ -1,10 +1,40 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Button from "../Button";
 import Container from "../Container";
 import Link from "next/link";
+import classNames from "classnames";
+import useDevice from "@/hooks/useDevice";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { isMobile } = useDevice();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+    return () => {
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+    };
+  }, []);
+
   return (
     <>
       <Container>
@@ -54,15 +84,51 @@ const Header = () => {
           <Button>Забронировать</Button>
         </div>
       </Container>
-      <div className="bg-secondary min-h-[52px]">
-        <Container>
-          <div className="flex items-center gap-8 justify-center py-2 hidden md:flex">
-            <Button>Номера</Button>
-            <Button>О нас</Button>
-            <Button>Контакты</Button>
-            <Button>Отзывы</Button>
+      <div
+        className="bg-secondary min-h-[52px] flex items-center relative"
+        ref={menuRef}
+      >
+        <Container
+          className={isMobile ? "flex items-center" : ""}
+        >
+          <div
+            className={classNames(
+              "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10",
+              {
+                "absolute top-full left-0 w-full bg-secondary":
+                  isOpen,
+                hidden: isMobile && !isOpen,
+                flex: !isMobile || isOpen,
+              }
+            )}
+          >
+            <Button onClick={() => setIsOpen(false)}>
+              Номера
+            </Button>
+            <Button onClick={() => setIsOpen(false)}>
+              О нас
+            </Button>
+            <Button onClick={() => setIsOpen(false)}>
+              Контакты
+            </Button>
+            <Button onClick={() => setIsOpen(false)}>
+              Отзывы
+            </Button>
             <Button>Как забронировать</Button>
           </div>
+          {isMobile && (
+            <button
+              className="mx-6"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <Image
+                src="/icons/menu-burger.svg"
+                alt="menu"
+                width={24}
+                height={24}
+              />
+            </button>
+          )}
         </Container>
       </div>
     </>

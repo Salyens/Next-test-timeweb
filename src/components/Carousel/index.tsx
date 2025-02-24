@@ -3,12 +3,14 @@ import React, { useCallback } from "react";
 import "./carousel.scss";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import useDevice from "@/hooks/useDevice";
 
 const Carousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true },
     [Autoplay()]
   );
+  const { isMobile } = useDevice();
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -46,22 +48,32 @@ const Carousel = () => {
           />
         </div>
       </div>
-      <button className="embla__prev" onClick={scrollPrev}>
-        <Image
-          src="/icons/prev.png"
-          alt="arrow-right"
-          width={40}
-          height={40}
-        />
-      </button>
-      <button className="embla__next" onClick={scrollNext}>
-        <Image
-          src="/icons/next.png"
-          alt="arrow-right"
-          width={40}
-          height={40}
-        />
-      </button>
+      {!isMobile && (
+        <>
+          <button
+            className="embla__prev"
+            onClick={scrollPrev}
+          >
+            <Image
+              src="/icons/prev.png"
+              alt="arrow-right"
+              width={40}
+              height={40}
+            />
+          </button>
+          <button
+            className="embla__next"
+            onClick={scrollNext}
+          >
+            <Image
+              src="/icons/next.png"
+              alt="arrow-right"
+              width={40}
+              height={40}
+            />
+          </button>
+        </>
+      )}
     </div>
   );
 };

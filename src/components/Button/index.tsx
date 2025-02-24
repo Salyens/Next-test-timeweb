@@ -1,11 +1,18 @@
 import React from "react";
 import "./button.scss";
+
 const Button = ({
   children,
+  ...otherProps
 }: {
   children: React.ReactNode;
+  onClick?: () => void;
 }) => {
-  return <button className="button">{children}</button>;
+  return (
+    <button {...otherProps} className="button">
+      {children}
+    </button>
+  );
 };
 
 export default Button;
