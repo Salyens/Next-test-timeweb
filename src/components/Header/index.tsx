@@ -49,9 +49,13 @@ const Header = () => {
               width={isMobile ? 40 : 70}
               height={isMobile ? 40 : 70}
             />
-            <p className="hidden md:block">
-              Гостевой дом <br />
-              «Кредо»
+            <p className="text-xs lg:text-base flex flex-col">
+              <span className="mr-1">
+                Гостевой дом
+              </span>
+              <span>
+                «Кредо»
+              </span>
             </p>
           </Link>
           <div className="flex items-center gap-2 hidden xl:flex">
@@ -71,7 +75,10 @@ const Header = () => {
               height={40}
               className="hidden sm:block"
             />
-            <a href="tel:+79608848071">
+            <a
+              className="text-xs lg:text-base"
+              href="tel:+79608848071"
+            >
               +7 (960) 884-80-71
             </a>
           </div>
