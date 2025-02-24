@@ -1,40 +1,11 @@
-"use client";
-
-import { motion } from "framer-motion";
-import Image from "next/image";
 import React from "react";
+import Header from "./Header";
 
-const MainPage = ({ posts }: { posts: any[] }) => {
+const MainPage = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-
-      <Image
-        src="/phone.png"
-        alt="Profile"
-        width={40}
-        height={40}
-      />
-
-      {/* <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 5 }}
-      >
-        <Image
-          src="/next.svg"
-          alt="Profile"
-          width={1000}
-          height={1000}
-        />
-      </motion.div> */}
-      {posts.map((post) => (
-        <div key={post.id}>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <Header />
+    </>
   );
 };
 

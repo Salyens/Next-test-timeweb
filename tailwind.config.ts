@@ -7,8 +7,15 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ["Montserrat", "sans-serif"],
+    extend: {
+      colors: {
+        main: "#3b3b3b",
+        secondary: "#745246",
+        "secondary-hover": "rgb(135, 95, 82)",
+      },
+      fontFamily: {
+        sans: ["Montserrat", "sans-serif"],
+      },
     },
   },
   plugins: [],
