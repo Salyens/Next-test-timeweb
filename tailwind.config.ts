@@ -12,6 +12,10 @@ export default {
         main: "#3b3b3b",
         secondary: "#745246",
         "secondary-hover": "rgb(135, 95, 82)",
+        footer: "#292929",
+        "footer-border": "#41474e",
+        "footer-text": "#a7a7a7",
+        "footer-icon": "#f0f0f0",
       },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],

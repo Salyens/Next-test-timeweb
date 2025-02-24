@@ -25,7 +25,7 @@ const Carousel = () => {
       <div className="embla__container">
         <div className="embla__slide">
           <Image
-            src="/welcome/welcome-1.jpg"
+            src="/welcome/1.jpg"
             alt="carousel-1"
             style={{ objectFit: "cover" }}
             fill
@@ -33,7 +33,7 @@ const Carousel = () => {
         </div>
         <div className="embla__slide">
           <Image
-            src="/welcome/welcome-1.jpg"
+            src="/welcome/2.jpg"
             alt="carousel-1"
             style={{ objectFit: "cover" }}
             fill
@@ -41,7 +41,7 @@ const Carousel = () => {
         </div>
         <div className="embla__slide">
           <Image
-            src="/welcome/welcome-1.jpg"
+            src="/welcome/3.jpg"
             alt="carousel-1"
             style={{ objectFit: "cover" }}
             fill

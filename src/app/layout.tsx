@@ -1,6 +1,8 @@
+import Header from "@/components/Header";
 import Head from "next/head";
 import "./globals.css";
 import { Metadata } from "next";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Гостевой дом Кредо",
@@ -20,7 +22,11 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1"
         />
       </Head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

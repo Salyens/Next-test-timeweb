@@ -5,3 +5,11 @@
 body {
   @apply text-main font-sans;
 }
+
+a {
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}

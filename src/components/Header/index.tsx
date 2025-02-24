@@ -36,7 +36,7 @@ const Header = () => {
   }, []);
 
   return (
-    <>
+    <header>
       <Container>
         <div className="flex items-center justify-between py-4 sm:flex-row flex-col gap-2 lg:gap-4">
           <Link
@@ -50,35 +50,33 @@ const Header = () => {
               height={isMobile ? 40 : 70}
             />
             <p className="text-xs lg:text-base flex flex-col">
-              <span className="mr-1">
-                Гостевой дом
-              </span>
-              <span>
-                «Кредо»
-              </span>
+              <span className="mr-1">Гостевой дом</span>
+              <span>«Кредо»</span>
             </p>
           </Link>
           <div className="flex items-center gap-2 hidden xl:flex">
-            <Image
-              src="/header/place.png"
-              alt="mail"
-              width={40}
-              height={40}
-            />
-            <p>г. Кисловодск, ул. Суворова 10 </p>
+            <p className="flex items-center gap-2">
+              <Image
+                src="/header/place.png"
+                alt="mail"
+                width={40}
+                height={40}
+              />
+              г. Кисловодск, ул. Суворова 10{" "}
+            </p>
           </div>
           <div className="flex items-center gap-2">
-            <Image
-              src="/header/phone.png"
-              alt="phone"
-              width={40}
-              height={40}
-              className="hidden sm:block"
-            />
             <a
-              className="text-xs lg:text-base"
+              className="text-xs lg:text-base flex items-center gap-2"
               href="tel:+79608848071"
             >
+              <Image
+                src="/header/phone.png"
+                alt="phone"
+                width={40}
+                height={40}
+                className="hidden sm:block"
+              />
               +7 (960) 884-80-71
             </a>
           </div>
@@ -137,7 +135,7 @@ const Header = () => {
           )}
         </Container>
       </div>
-    </>
+    </header>
   );
 };
 
