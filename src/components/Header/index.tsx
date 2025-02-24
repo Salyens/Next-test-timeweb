@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       <Container>
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-4 sm:flex-row flex-col gap-4">
           <Link
             href="/"
             className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
@@ -19,12 +19,12 @@ const Header = () => {
               width={70}
               height={70}
             />
-            <p>
+            <p className="hidden md:block">
               Гостевой дом <br />
               «Кредо»
             </p>
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 hidden xl:flex">
             <Image
               src="/header/place.png"
               alt="mail"
@@ -39,6 +39,7 @@ const Header = () => {
               alt="phone"
               width={40}
               height={40}
+              className="hidden sm:block"
             />
             <a href="tel:+79608848071">
               +7 (960) 884-80-71
@@ -48,13 +49,14 @@ const Header = () => {
             src="https://yandex.ru/sprav/widget/rating-badge/69363274872"
             width="150"
             height="50"
+            className="hidden sm:block"
           ></iframe>
           <Button>Забронировать</Button>
         </div>
       </Container>
-      <div className="bg-secondary">
+      <div className="bg-secondary min-h-[52px]">
         <Container>
-          <div className="flex items-center gap-8 justify-center py-2">
+          <div className="flex items-center gap-8 justify-center py-2 hidden md:flex">
             <Button>Номера</Button>
             <Button>О нас</Button>
             <Button>Контакты</Button>

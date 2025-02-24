@@ -5,6 +5,29 @@
   display: flex;
 }
 .embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
+  position: relative;
+  min-width: 100%;
+  height: calc(100vh - 154px);
+}
+
+.embla__prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.embla__next {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.embla__next:hover,
+.embla__prev:hover {
+  opacity: 1;
 }
