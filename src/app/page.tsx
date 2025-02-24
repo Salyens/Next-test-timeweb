@@ -1,7 +1,11 @@
 import MainPage from "@/components/MainPage";
 
 const Home = async () => {
-  return <MainPage />;
+  return (
+    <>
+      <MainPage />
+    </>
+  );
 };
 
 export default Home;
