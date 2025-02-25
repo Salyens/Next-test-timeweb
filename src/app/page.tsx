@@ -1,5 +1,5 @@
 import MainPage from "@/components/MainPage";
-import Welcome from "@/components/Welcome";
+import "../styles/index.scss";
 
 const Home = async () => {
   return <MainPage />;

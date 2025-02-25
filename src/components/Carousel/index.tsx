@@ -1,80 +1,38 @@
-import useEmblaCarousel from "embla-carousel-react";
-import React, { useCallback } from "react";
-import "./carousel.scss";
-import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
-import useDevice from "@/hooks/useDevice";
+import React from "react";
+import EmblaCarousel from "../EmblaCarousel/EmblaCarousel/EmblaCarousel";
+
+const OPTIONS = {
+  loop: true,
+};
+
+const SLIDES = [
+  {
+    src: "/welcome/1.jpg",
+    alt: "carousel-1",
+    title: "Гостевой дом Кредо",
+    description: "Рады видеть гостей в любое время года! Отдыхайте с комфортом - выбирайте наши номера.",
+  },
+  {
+    src: "/welcome/2.jpg",
+    alt: "carousel-2",
+    title: "Гостевой дом Кредо",
+    description: "Рады видеть гостей в любое время года! Отдыхайте с комфортом - выбирайте наши номера.",
+  },
+  {
+    src: "/welcome/3.jpg",
+    alt: "carousel-3",
+    title: "Гостевой дом Кредо",
+    description: "Рады видеть гостей в любое время года! Отдыхайте с комфортом - выбирайте наши номера.",
+  },
+];
 
 const Carousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true },
-    [Autoplay()]
-  );
-  const { isMobile } = useDevice();
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
   return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        <div className="embla__slide">
-          <Image
-            src="/welcome/1.jpg"
-            alt="carousel-1"
-            style={{ objectFit: "cover" }}
-            fill
-          />
-        </div>
-        <div className="embla__slide">
-          <Image
-            src="/welcome/2.jpg"
-            alt="carousel-1"
-            style={{ objectFit: "cover" }}
-            fill
-          />
-        </div>
-        <div className="embla__slide">
-          <Image
-            src="/welcome/3.jpg"
-            alt="carousel-1"
-            style={{ objectFit: "cover" }}
-            fill
-          />
-        </div>
-      </div>
-      {!isMobile && (
-        <>
-          <button
-            className="embla__prev"
-            onClick={scrollPrev}
-          >
-            <Image
-              src="/icons/prev.png"
-              alt="arrow-right"
-              width={40}
-              height={40}
-            />
-          </button>
-          <button
-            className="embla__next"
-            onClick={scrollNext}
-          >
-            <Image
-              src="/icons/next.png"
-              alt="arrow-right"
-              width={40}
-              height={40}
-            />
-          </button>
-        </>
-      )}
-    </div>
+    <EmblaCarousel
+      slides={SLIDES}
+      options={OPTIONS}
+      autoplay={true}
+    />
   );
 };
 
