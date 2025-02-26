@@ -1,40 +1,62 @@
-// import {
-//   YMapDefaultFeaturesLayer,
-//   YMapDefaultSchemeLayer,
-//   YMapMarker,
-// } from "@/lib/ymaps";
+"use client";
+import React, { useEffect } from "react";
 
-// import { reactify } from "@/lib/ymaps";
+const LOCATION = {
+  center: [43.89558, 42.709295],
+  zoom: 16,
+};
 
-// import { YMap } from "@/lib/ymaps";
-// import React from "react";
+const Map = () => {
+  useEffect(() => {
+    const loadYandexMaps = () => {
+      const script = document.createElement("script");
+      script.src =
+        "https://api-maps.yandex.ru/2.1/?apikey=795f408c-dd62-4023-83ef-5f2643286ed2&lang=ru_RU";
+      script.type = "text/javascript";
+      script.onload = () => {
+        // Initialize the map once the script is loaded
+        // @ts-ignore
+        window.ymaps.ready(() => {
+          // @ts-ignore
+          const map = new window.ymaps.Map("yandex-map", {
+            center: LOCATION.center,
+            zoom: LOCATION.zoom,
+          });
 
+          // Add a placemark
+          // @ts-ignore
+          const placemark = new window.ymaps.Placemark(
+            LOCATION.center,
+            {
+              hintContent: "Кисловодск, ул. Суворова 10",
+              balloonContent: "Кисловодск, ул. Суворова 10",
+            },
+            {
+              preset: "islands#icon",
+              iconColor: "blue",
+            }
+          );
 
-// const LOCATION = {
-//     center: [37.588144, 55.733842],
-//     zoom: 9
-//   };
+          map.geoObjects.add(placemark);
 
-// const Map = () => {
-//   return (
-//     <div style={{ width: "600px", height: "400px" }}>
-//       <YMap location={reactify.useDefault(LOCATION)}>
-//         <YMapDefaultSchemeLayer />
-//         <YMapDefaultFeaturesLayer />
+          // Open the balloon when the placemark is clicked
+          placemark.events.add("click", function () {
+            placemark.balloon.open();
+          });
+        });
+      };
+      document.head.appendChild(script);
+    };
 
-//         <YMapMarker
-//           coordinates={reactify.useDefault([
-//             37.588144, 55.733842,
-//           ])}
-//           draggable={true}
-//         >
-//           <section>
-//             <h1>You can drag this header</h1>
-//           </section>
-//         </YMapMarker>
-//       </YMap>
-//     </div>
-//   );
-// };
+    loadYandexMaps();
+  }, []);
 
-// export default Map;
+  return (
+    <div
+      id="yandex-map"
+      style={{ width: "100%", height: "400px" }}
+    />
+  );
+};
+
+export default Map;

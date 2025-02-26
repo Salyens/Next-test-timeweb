@@ -43,7 +43,7 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <Container>
+    <Container className="mb-10">
       <Title title="Отзывы" />
       <div className="border-t border-gray-200 py-2"></div>
       <ReviewCarousel

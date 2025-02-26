@@ -48,6 +48,7 @@ const Header = () => {
               alt="phone"
               width={isMobile ? 40 : 70}
               height={isMobile ? 40 : 70}
+              priority
             />
             <p className="text-xs lg:text-base flex flex-col">
               <span className="mr-1">Гостевой дом</span>
