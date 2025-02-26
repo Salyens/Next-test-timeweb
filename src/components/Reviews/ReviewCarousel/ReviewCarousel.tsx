@@ -7,15 +7,14 @@ import {
   DotButton,
   useDotButton,
 } from "@/components/EmblaCarousel/EmblaCarouselDotButton/EmblaCarouselDotButton";
-import useEmblaCarousel from "embla-carousel-react";
 import {
   NextButton,
   PrevButton,
   usePrevNextButtons,
 } from "@/components/EmblaCarousel/EmblaCarouselArrowButtons/EmblaCarouselArrowButtons";
-import Image from "next/image";
 import OneReview from "../OneReview";
-
+import useEmblaCarousel from "embla-carousel-react";
+import { EmblaCarouselType } from "embla-carousel";
 interface Props {
   slides: any[];
   options: any;
@@ -34,7 +33,7 @@ const ReviewCarousel = (props: Props) => {
     useDotButton(emblaApi);
 
   const { onPrevButtonClick, onNextButtonClick } =
-    usePrevNextButtons(emblaApi);
+    usePrevNextButtons(emblaApi as EmblaCarouselType);
 
   const groupSlides = (slides: any[]) => {
     const grouped = [];

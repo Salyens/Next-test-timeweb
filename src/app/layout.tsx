@@ -3,7 +3,7 @@ import Head from "next/head";
 import "./globals.css";
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
-import "../styles/index.scss";
+// import "../styles/index.scss";
 
 export const metadata: Metadata = {
   title: "Гостевой дом Кредо",

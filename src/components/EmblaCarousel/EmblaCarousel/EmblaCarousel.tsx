@@ -1,6 +1,7 @@
 import React from "react";
 
 import useEmblaCarousel from "embla-carousel-react";
+import { EmblaCarouselType } from "embla-carousel";
 import useDotButton from "../EmblaCarouselDotButton";
 import { DotButton } from "../EmblaCarouselDotButton";
 import {
@@ -30,7 +31,7 @@ const EmblaCarousel = (props: Props) => {
     useDotButton(emblaApi);
 
   const { onPrevButtonClick, onNextButtonClick } =
-    usePrevNextButtons(emblaApi);
+    usePrevNextButtons(emblaApi as EmblaCarouselType);
 
   return (
     <section className="embla">
@@ -63,7 +64,7 @@ const EmblaCarousel = (props: Props) => {
       <div className="embla__controls">
         {!isMobile && (
         <div className="embla__buttons">
-            <PrevButton onClick={onPrevButtonClick} />
+            <PrevButton  onClick={onPrevButtonClick} />
             <NextButton onClick={onNextButtonClick} />
           </div>
         )}
