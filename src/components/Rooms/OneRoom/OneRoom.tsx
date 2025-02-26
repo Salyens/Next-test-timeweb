@@ -9,7 +9,7 @@ const OneRoom = ({ room }: { room: any }) => {
         <Image
           src={room.image}
           alt="room"
-          layout="fill"
+          fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>

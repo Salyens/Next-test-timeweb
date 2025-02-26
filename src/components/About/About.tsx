@@ -11,7 +11,7 @@ const About = () => {
         <Image
           src="/about/1.jpg"
           alt="room"
-          layout="fill"
+          fill
           className="object-cover"
         />
       </div>
