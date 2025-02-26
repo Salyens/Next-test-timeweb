@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import useDevice from "@/hooks/useDevice";
+import classNames from "classnames";
 
 interface Props {
   slides: any[];
@@ -40,13 +41,13 @@ const EmblaCarousel = (props: Props) => {
           {slides.map((slide: any) => (
             <div className="embla__slide" key={slide.src}>
               <div
-                className="bg-second-gray relative z-10 top-1/2 md:top-2/3 md:-translate-y-1/2 w-full lg:w-2/5 
-             text-center p-10 lg:left-4  "
+                className="bg-second-gray relative z-10 top-2/3 -translate-y-1/2 w-full lg:w-2/5 
+             text-center p-4 lg:p-10 lg:left-4  "
               >
-                <h2 className="text-4xl font-bold pb-6">
+                <h2 className="text-2xl md:text-4xl font-bold pb-2 md:pb-6">
                   {slide.title}
                 </h2>
-                <p className="text-xl">
+                <p className="text-sm md:text-xl">
                   {slide.description}
                 </p>
               </div>
@@ -63,8 +64,8 @@ const EmblaCarousel = (props: Props) => {
 
       <div className="embla__controls">
         {!isMobile && (
-        <div className="embla__buttons">
-            <PrevButton  onClick={onPrevButtonClick} />
+          <div className="embla__buttons">
+            <PrevButton onClick={onPrevButtonClick} />
             <NextButton onClick={onNextButtonClick} />
           </div>
         )}
@@ -74,7 +75,8 @@ const EmblaCarousel = (props: Props) => {
               <DotButton
                 key={index}
                 onClick={() => onDotButtonClick(index)}
-                className={"embla__dot".concat(
+                className={classNames(
+                  "embla__dot",
                   index === selectedIndex
                     ? " embla__dot--selected"
                     : ""

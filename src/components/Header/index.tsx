@@ -63,7 +63,7 @@ const Header = () => {
                 width={40}
                 height={40}
               />
-              г. Кисловодск, ул. Суворова 10{" "}
+              г. Кисловодск, ул. Суворова 10
             </p>
           </div>
           <div className="flex items-center gap-2">
