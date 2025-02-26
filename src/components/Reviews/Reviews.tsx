@@ -49,7 +49,7 @@ const Reviews = () => {
       <ReviewCarousel
         slides={reviews}
         options={{ loop: true }}
-        // autoplay={true}
+        autoplay={true}
       />
     </Container>
   );
