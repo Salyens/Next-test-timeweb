@@ -56,6 +56,7 @@ const EmblaCarousel = (props: Props) => {
                 alt={slide.alt}
                 style={{ objectFit: "cover" }}
                 fill
+                priority
               />
             </div>
           ))}

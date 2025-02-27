@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../Container";
 import Title from "../Title";
 import ReviewCarousel from "./ReviewCarousel";
+import DivToScroll from "../DivToScroll";
 
 const reviews = [
   {
@@ -44,6 +45,7 @@ const reviews = [
 const Reviews = () => {
   return (
     <Container className="mb-10">
+      <DivToScroll name="reviews" />
       <Title title="Отзывы" />
       <div className="border-t border-gray-200 py-2"></div>
       <ReviewCarousel

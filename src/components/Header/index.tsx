@@ -1,17 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useContext,
+} from "react";
 import Button from "../Button";
 import Container from "../Container";
 import Link from "next/link";
 import classNames from "classnames";
 import useDevice from "@/hooks/useDevice";
+import { RefContext } from "../Context/RefContext";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useDevice();
   const menuRef = useRef<HTMLDivElement>(null);
+  const { roomsRef, aboutRef, reviewsRef, contactRef } =
+    useContext(RefContext);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -35,28 +43,57 @@ const Header = () => {
     };
   }, []);
 
+  const handleClick = (
+    ref: React.RefObject<HTMLDivElement | null>
+  ) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header>
       <Container>
-        <div className="flex items-center justify-between py-4 sm:flex-row flex-col gap-2 lg:gap-4">
-          <Link
-            href="/"
-            className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
-          >
-            <Image
-              src="/header/house.png"
-              alt="phone"
-              width={isMobile ? 40 : 70}
-              height={isMobile ? 40 : 70}
-              priority
-            />
-            <p className="text-xs lg:text-base flex flex-col">
-              <span className="mr-1">Гостевой дом</span>
-              <span>«Кредо»</span>
-            </p>
-          </Link>
+        <div className="flex flex-col md:flex-row items-center justify-between py-4 gap-2 lg:gap-4">
+          <div className="flex items-center gap-2">
+            <Link
+              href="/"
+              className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
+            >
+              <Image
+                src="/header/house.png"
+                alt="phone"
+                width={isMobile ? 40 : 70}
+                height={isMobile ? 40 : 70}
+                priority
+              />
+              <p className="text-xs lg:text-base flex flex-col">
+                <span className="mr-1">Гостевой дом</span>
+                <span>«Кредо»</span>
+              </p>
+            </Link>
+            <div className="flex items-center gap-2">
+              <a
+                className="text-xs lg:text-base flex items-center gap-2"
+                href="tel:+79608848071"
+              >
+                <Image
+                  src="/header/phone.png"
+                  alt="phone"
+                  width={40}
+                  height={40}
+                  className="hidden sm:block"
+                />
+                +7 (960) 884-80-71
+              </a>
+            </div>
+          </div>
+
           <div className="flex items-center gap-2 hidden xl:flex">
-            <p className="flex items-center gap-2">
+            <a
+              onClick={() => handleClick(contactRef)}
+              className="flex items-center gap-2 cursor-pointer"
+            >
               <Image
                 src="/header/place.png"
                 alt="mail"
@@ -64,29 +101,17 @@ const Header = () => {
                 height={40}
               />
               г. Кисловодск, ул. Суворова 10
-            </p>
-          </div>
-          <div className="flex items-center gap-2">
-            <a
-              className="text-xs lg:text-base flex items-center gap-2"
-              href="tel:+79608848071"
-            >
-              <Image
-                src="/header/phone.png"
-                alt="phone"
-                width={40}
-                height={40}
-                className="hidden sm:block"
-              />
-              +7 (960) 884-80-71
             </a>
           </div>
-          <iframe
-            src="https://yandex.ru/sprav/widget/rating-badge/69363274872"
-            width="150"
-            height="50"
-          ></iframe>
-          <Button>Забронировать</Button>
+
+          <div className="flex items-center gap-2">
+            <iframe
+              src="https://yandex.ru/sprav/widget/rating-badge/69363274872"
+              width="150"
+              height="50"
+            ></iframe>
+            <Button>Забронировать</Button>
+          </div>
         </div>
       </Container>
       <div
@@ -107,16 +132,16 @@ const Header = () => {
               }
             )}
           >
-            <Button onClick={() => setIsOpen(false)}>
+            <Button onClick={() => handleClick(roomsRef)}>
               Номера
             </Button>
-            <Button onClick={() => setIsOpen(false)}>
+            <Button onClick={() => handleClick(aboutRef)}>
               О нас
             </Button>
-            <Button onClick={() => setIsOpen(false)}>
+            <Button onClick={() => handleClick(contactRef)}>
               Контакты
             </Button>
-            <Button onClick={() => setIsOpen(false)}>
+            <Button onClick={() => handleClick(reviewsRef)}>
               Отзывы
             </Button>
             <Button>Как забронировать</Button>

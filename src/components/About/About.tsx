@@ -2,10 +2,12 @@ import React from "react";
 import Container from "../Container";
 import Title from "../Title";
 import Image from "next/image";
+import DivToScroll from "../DivToScroll";
 
 const About = () => {
   return (
     <Container className="flex flex-col gap-4 mb-4">
+      <DivToScroll name="about" />
       <Title title="О нас" />
       <div className="relative w-full h-[50vh]">
         <Image

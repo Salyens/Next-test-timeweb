@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 const LOCATION = {
   center: [43.89558, 42.709295],
@@ -7,8 +7,6 @@ const LOCATION = {
 };
 
 const Map = () => {
-  const [mapLoaded, setMapLoaded] = useState(false);
-
   useEffect(() => {
     const loadYandexMaps = () => {
       const script = document.createElement("script");
@@ -45,9 +43,6 @@ const Map = () => {
           placemark.events.add("click", function () {
             placemark.balloon.open();
           });
-
-          // Set map as loaded
-          setMapLoaded(true);
         });
       };
       document.head.appendChild(script);
@@ -59,7 +54,6 @@ const Map = () => {
   return (
     <div
       id="yandex-map"
-      className={mapLoaded ? "loaded" : ""}
       style={{ width: "100%", height: "400px" }}
     />
   );

@@ -1,10 +1,12 @@
 import React from "react";
 import Container from "../Container";
 import Image from "next/image";
+import DivToScroll from "../DivToScroll";
 
 const Footer = () => {
   return (
     <footer className="bg-footer text-footer-text py-4">
+      <DivToScroll name="contact" />
       <Container>
         <div className="flex flex-col gap-4 items-center pb-4">
           <div className="flex flex-col gap-2">

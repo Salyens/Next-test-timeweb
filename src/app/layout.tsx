@@ -3,7 +3,7 @@ import Head from "next/head";
 import "./globals.css";
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
-// import "../styles/index.scss";
+import RefContextProvider from "@/components/Context/RefContext";
 
 export const metadata: Metadata = {
   title: "Гостевой дом Кредо",
@@ -24,9 +24,11 @@ export default function RootLayout({
         />
       </Head>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <RefContextProvider>
+          <Header />
+          {children}
+          <Footer />
+        </RefContextProvider>
       </body>
     </html>
   );
