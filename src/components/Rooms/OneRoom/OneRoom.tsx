@@ -4,7 +4,7 @@ import React from "react";
 
 const OneRoom = ({ room }: { room: any }) => {
   return (
-    <div className="group flex flex-col gap-2 font-bold w-full md:w-[40%] lg:w-[30%] min-w-[300px] p-4 border cursor-pointer">
+    <div className="group flex flex-col gap-2 font-bold  p-4 border cursor-pointer">
       <div className="relative w-full h-64">
         <Image
           src={room.image}
