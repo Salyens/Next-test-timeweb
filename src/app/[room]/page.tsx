@@ -1,7 +1,9 @@
 import React from 'react'
 
-const page = ({ params }: { params: { room: string } }) => {
-  return <div>{params.room}</div>;
-};
+const page = ({}) => {
+  return (
+    <div>page</div>
+  )
+}
 
 export default page
