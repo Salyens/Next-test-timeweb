@@ -1,10 +1,14 @@
 import Button from "@/components/Button";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const OneRoom = ({ room }: { room: any }) => {
   return (
-    <div className="group flex flex-col gap-2 font-bold  p-4 border cursor-pointer">
+    <Link
+      href={`/room/${room.id}`}
+      className="group flex flex-col gap-2 font-bold  p-4 border cursor-pointer"
+    >
       <div className="relative w-full h-64">
         <Image
           src={room.image}
@@ -18,7 +22,7 @@ const OneRoom = ({ room }: { room: any }) => {
       </p>
       <p className="text-xl">{room.price} руб.</p>
       <Button>Подробнее</Button>
-    </div>
+    </Link>
   );
 };
 
