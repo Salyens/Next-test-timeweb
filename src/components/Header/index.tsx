@@ -13,6 +13,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import useDevice from "@/hooks/useDevice";
 import { RefContext } from "../Context/RefContext";
+import Phone from "../common/Phone";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,19 +74,7 @@ const Header = () => {
               </p>
             </Link>
             <div className="flex items-center gap-2">
-              <a
-                className="text-xs lg:text-base flex items-center gap-2"
-                href="tel:+79608848071"
-              >
-                <Image
-                  src="/header/phone.png"
-                  alt="phone"
-                  width={40}
-                  height={40}
-                  className="hidden sm:block"
-                />
-                +7 (960) 884-80-71
-              </a>
+              <Phone />
             </div>
           </div>
 
