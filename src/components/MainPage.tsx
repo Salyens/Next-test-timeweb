@@ -8,12 +8,12 @@ import HowToBook from "./HowToBook";
 const MainPage = () => {
   return (
     <>
-      {/* <Welcome /> */}
+      <Welcome />
       <Rooms />
-      {/* <HowToBook />
+      <HowToBook />
       <About />
       <Reviews />
-      <Map /> */}
+      <Map />
     </>
   );
 };
