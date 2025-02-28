@@ -9,17 +9,16 @@ import React, {
 } from "react";
 import Button from "../Button";
 import Container from "../Container";
-import Link from "next/link";
 import classNames from "classnames";
 import useDevice from "@/hooks/useDevice";
 import { RefContext } from "../Context/RefContext";
-import Phone from "../common/Phone";
+import HeaderTop from "./HeaderTop";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useDevice();
   const menuRef = useRef<HTMLDivElement>(null);
-  const { roomsRef, aboutRef, reviewsRef, contactRef } =
+  const { roomsRef, aboutRef, reviewsRef, contactRef, howToBookRef } =
     useContext(RefContext);
 
   useEffect(() => {
@@ -54,55 +53,7 @@ const Header = () => {
 
   return (
     <header>
-      <Container>
-        <div className="flex flex-col md:flex-row items-center justify-between py-4 gap-2 lg:gap-4">
-          <div className="flex items-center gap-2">
-            <Link
-              href="/"
-              className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
-            >
-              <Image
-                src="/header/house.png"
-                alt="phone"
-                width={isMobile ? 40 : 70}
-                height={isMobile ? 40 : 70}
-                priority
-              />
-              <p className="text-xs lg:text-base flex flex-col">
-                <span className="mr-1">Гостевой дом</span>
-                <span>«Кредо»</span>
-              </p>
-            </Link>
-            <div className="flex items-center gap-2">
-              <Phone />
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 hidden xl:flex">
-            <a
-              onClick={() => handleClick(contactRef)}
-              className="flex items-center gap-2 cursor-pointer"
-            >
-              <Image
-                src="/header/place.png"
-                alt="mail"
-                width={40}
-                height={40}
-              />
-              г. Кисловодск, ул. Суворова 10
-            </a>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <iframe
-              src="https://yandex.ru/sprav/widget/rating-badge/69363274872"
-              width="150"
-              height="50"
-            ></iframe>
-            <Button>Забронировать</Button>
-          </div>
-        </div>
-      </Container>
+      <HeaderTop />
       <div
         className="bg-secondary min-h-[52px] flex items-center relative"
         ref={menuRef}
@@ -133,7 +84,9 @@ const Header = () => {
             <Button onClick={() => handleClick(reviewsRef)}>
               Отзывы
             </Button>
-            <Button>Как забронировать</Button>
+            <Button onClick={() => handleClick(howToBookRef)}>
+              Как забронировать
+            </Button>
           </div>
           {isMobile && (
             <button

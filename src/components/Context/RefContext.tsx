@@ -7,10 +7,12 @@ const useRefContextValue = () => {
   const aboutRef = React.useRef<HTMLDivElement | null>(null);
   const reviewsRef = React.useRef<HTMLDivElement | null>(null);
   const contactRef = React.useRef<HTMLDivElement | null>(null);
-
+  const howToBookRef = React.useRef<HTMLDivElement | null>(null);
+  
   return {
     roomsRef,
     aboutRef,
+    howToBookRef,
     reviewsRef,
     contactRef,
   };

@@ -4,13 +4,13 @@ import React, { useContext } from "react";
 import { RefContext } from "../Context/RefContext";
 
 interface DivToScrollProps {
-  name: "rooms" | "about" | "reviews" | "contact";
+  name: "rooms" | "about" | "reviews" | "contact" | "howToBook";
 }
 
 const DivToScroll: React.FC<DivToScrollProps> = ({
   name,
 }) => {
-  const { roomsRef, aboutRef, reviewsRef, contactRef } = useContext(RefContext);
+  const { roomsRef, aboutRef, reviewsRef, contactRef, howToBookRef } = useContext(RefContext);
 
   const getRef = () => {
     switch (name) {
@@ -22,6 +22,8 @@ const DivToScroll: React.FC<DivToScrollProps> = ({
         return reviewsRef;
       case "contact":
         return contactRef;
+      case "howToBook":
+        return howToBookRef;
       default:
         return null;
     }
