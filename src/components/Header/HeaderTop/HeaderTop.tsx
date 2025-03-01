@@ -12,8 +12,7 @@ import Placemark from "@/components/common/Placemark";
 
 const HeaderTop = () => {
   const { isMobile } = useDevice();
-  const { contactRef, howToBookRef } =
-    useContext(RefContext);
+  const { howToBookRef } = useContext(RefContext);
 
   const handleClick = (
     ref: React.RefObject<HTMLDivElement | null>
@@ -23,7 +22,7 @@ const HeaderTop = () => {
     }
   };
   return (
-    <Container className="bg-gray-200">
+    <Container>
       <div className="flex flex-col md:flex-row items-center justify-between py-4 gap-2 lg:gap-4">
         <div className="flex items-center gap-2">
           <Link
