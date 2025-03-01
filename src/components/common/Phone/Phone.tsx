@@ -20,12 +20,14 @@ const Phone = ({
       href={`tel:${phone}`}
     >
       {showIcon && (
-        <Image
-          src="/header/phone.png"
-          alt="phone"
-          width={40}
-          height={40}
-        />
+        <div className="bg-footer-icon rounded-full p-2">
+          <Image
+            src="/icons/phone.png"
+            alt="phone"
+            width={25}
+            height={25}
+          />
+        </div>
       )}
       {phone}
     </a>

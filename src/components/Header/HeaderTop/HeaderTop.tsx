@@ -7,19 +7,23 @@ import Image from "next/image";
 import Phone from "@/components/common/Phone";
 import { RefContext } from "@/components/Context/RefContext";
 import useDevice from "@/hooks/useDevice";
-import { Button } from "@headlessui/react";
+import Button from "@/components/Button";
+import Placemark from "@/components/common/Placemark";
 
 const HeaderTop = () => {
   const { isMobile } = useDevice();
-  const { contactRef, howToBookRef } = useContext(RefContext);
+  const { contactRef, howToBookRef } =
+    useContext(RefContext);
 
-  const handleClick = (ref: React.RefObject<HTMLDivElement | null>) => {
+  const handleClick = (
+    ref: React.RefObject<HTMLDivElement | null>
+  ) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (
-    <Container>
+    <Container className="bg-gray-200">
       <div className="flex flex-col md:flex-row items-center justify-between py-4 gap-2 lg:gap-4">
         <div className="flex items-center gap-2">
           <Link
@@ -44,18 +48,7 @@ const HeaderTop = () => {
         </div>
 
         <div className="flex items-center gap-2 hidden xl:flex">
-          <a
-            onClick={() => handleClick(contactRef)}
-            className="flex items-center gap-2 cursor-pointer"
-          >
-            <Image
-              src="/header/place.png"
-              alt="mail"
-              width={40}
-              height={40}
-            />
-            г. Кисловодск, ул. Суворова 10
-          </a>
+          <Placemark />
         </div>
 
         <div className="flex items-center gap-2">
@@ -64,7 +57,10 @@ const HeaderTop = () => {
             width="150"
             height="50"
           ></iframe>
-          <Button onClick={() => handleClick(howToBookRef)}>
+          <Button
+            className="w-full px-2 py-1 text-xs md:text-base"
+            onClick={() => handleClick(howToBookRef)}
+          >
             Забронировать
           </Button>
         </div>
