@@ -1,9 +1,10 @@
 import Button from "@/components/Button";
+import { Room } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const OneRoom = ({ room }: { room: any }) => {
+const OneRoom = ({ room }: { room: Room }) => {
   return (
     <Link
       href={`/room/${room.id}`}
@@ -11,7 +12,7 @@ const OneRoom = ({ room }: { room: any }) => {
     >
       <div className="relative w-full h-64">
         <Image
-          src={room.image}
+          src={room.mainImage}
           alt="room"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

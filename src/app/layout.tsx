@@ -3,6 +3,7 @@ import "./globals.css";
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
 import RefContextProvider from "@/components/Context/RefContext";
+import "@/styles/index.scss";
 
 export const metadata: Metadata = {
   title: "Гостевой дом Кредо",

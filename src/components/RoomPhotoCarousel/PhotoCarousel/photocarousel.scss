@@ -1,11 +1,3 @@
-.photo-carousel {
-  .photo-carousel__dot {
-    width: 200px;
-    height: 200px;
-
-    @media (max-width: $mobile) {
-      width: 10px;
-      height: 10px;
-    }
-  }
+.embla__buttons-photo-carousel {
+  top: 40%;
 }

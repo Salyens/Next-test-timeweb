@@ -78,10 +78,7 @@ const SLIDES = [
 
 const RoomPhotoCarousel = () => {
   return (
-    <PhotoCarousel
-      slides={SLIDES}
-      options={OPTIONS}
-    />
+    <PhotoCarousel slides={SLIDES} options={OPTIONS} />
   );
 };
 

@@ -1,8 +1,9 @@
 import Container from "@/components/Container";
-import RoomPhotoCarousel from "@/components/RoomPhotoCarousel";
+import RoomPage from "@/components/pages/RoomPage/RoomPage";
 import data from "@/data.json";
+import { notFound } from "next/navigation";
 
-export default async function RoomPage({
+export default async function page({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -12,26 +13,13 @@ export default async function RoomPage({
     (room) => room.id === Number(id)
   );
 
+  if (!room) {
+    notFound();
+  }
+
   return (
     <Container className="mb-10">
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-bold py-2 md:py-6">
-        {room?.title}
-      </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div className="lg:col-span-1">
-          <p className="font-bold">В номере</p>
-          <ul>
-            {room?.facilities.map((facility) => (
-              <li className="text-sm ml-2" key={facility}>
-                - {facility}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="lg:col-span-2">
-          <RoomPhotoCarousel />
-        </div>
-      </div>
+      <RoomPage room={room} />
     </Container>
   );
 }
