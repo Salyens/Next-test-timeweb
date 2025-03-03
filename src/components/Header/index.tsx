@@ -15,6 +15,7 @@ import useDevice from "@/hooks/useDevice";
 import { RefContext } from "../Context/RefContext";
 import HeaderTop from "./HeaderTop";
 import { useSearchParams } from "next/navigation";
+import { MotionDiv } from "../MotionDiv";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,7 +86,10 @@ const Header = () => {
         <Container
           className={isMobile ? "flex items-center" : ""}
         >
-          <div
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
             className={classNames(
               "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 md:border-none",
               {
@@ -113,7 +117,7 @@ const Header = () => {
             >
               Как забронировать
             </Button>
-          </div>
+          </MotionDiv>
           {isMobile && (
             <button
               className="mx-6"

@@ -13,6 +13,7 @@ import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import useDevice from "@/hooks/useDevice";
 import classNames from "classnames";
+import { MotionDiv } from "@/components/MotionDiv";
 
 interface Props {
   slides: any[];
@@ -40,7 +41,10 @@ const EmblaCarousel = (props: Props) => {
         <div className="embla__container">
           {slides.map((slide: any) => (
             <div className="embla__slide" key={slide.src}>
-              <div
+              <MotionDiv
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
                 className="bg-second-gray relative z-10 top-2/3 -translate-y-1/2 w-full lg:w-2/5 
              text-center p-4 lg:p-10 lg:left-4  "
               >
@@ -50,7 +54,7 @@ const EmblaCarousel = (props: Props) => {
                 <p className="text-sm md:text-xl">
                   {slide.description}
                 </p>
-              </div>
+              </MotionDiv>
               <Image
                 src={slide.src}
                 alt={slide.alt}
