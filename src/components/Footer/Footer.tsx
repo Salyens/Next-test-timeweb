@@ -1,13 +1,13 @@
 import React from "react";
 import Container from "../Container";
-import Image from "next/image";
 import DivToScroll from "../DivToScroll";
 import Phone from "../common/Phone";
-import Placemark from "../common/Placemark";
+import WA from "../common/WA";
+import VK from "../common/VK";
 
 const Footer = () => {
   return (
-    <footer className="bg-footer text-footer-text py-4">
+    <footer className="bg-footer text-footer-text py-4 text-sm md:text-base">
       <DivToScroll name="contact" />
       <Container>
         <div className="flex flex-col gap-4 items-center pb-4">
@@ -15,49 +15,19 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <Phone />
             </div>
-
-            <a
-              href="https://wa.me/79608848071"
-              target="_blank"
-              className="flex items-center gap-2"
-            >
-              <Image
-                src="/icons/wa.png"
-                alt="wa"
-                width={40}
-                height={40}
-                className="bg-footer-icon rounded-full p-1"
-              />
-              <span>WhatsApp</span>
-            </a>
-
-            <a
-              href="https://vk.com/kredo_house_kislovodsk"
-              target="_blank"
-              className="flex items-center gap-2"
-            >
-              <Image
-                src="/icons/vk.png"
-                alt="vk"
-                width={40}
-                height={40}
-                className="bg-footer-icon rounded-full p-1"
-              />
-              <span>ВКонтакте</span>
-            </a>
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-2 text-xs lg:text-base ">
-                <Placemark />
-              </div>
-            </div>
+            <WA />
+            <VK />
           </div>
         </div>
       </Container>
       <div className="border-t border-gray-border"></div>
       <Container>
-        <div className="flex justify-center gap-4 pt-4">
-          <div className="flex items-center justify-between">
-            <p className="text-sm">Гостевой дом «Кредо»</p>
+        <div className="flex justify-center gap-4 pt-2 md:pt-4">
+          <div className="flex flex-col items-center justify-between gap-2">
+            <p className="">Гостевой дом «Кредо»</p>
+            <p className="text-sm">
+              г. Кисловодск, ул. Суворова 10
+            </p>
           </div>
         </div>
       </Container>

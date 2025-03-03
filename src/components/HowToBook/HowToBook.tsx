@@ -38,7 +38,7 @@ const HowToBook = () => {
 
         <li className="flex flex-wrap items-center gap-1">
           <p className="inline">
-            3. Напишите нам вконтакте
+            2. Напишите нам вконтакте
           </p>
           <a
             href="https://vk.com/kredo_house_kislovodsk"

@@ -23,45 +23,45 @@ const HeaderTop = () => {
   };
   return (
     <Container>
-      <div className="flex flex-col md:flex-row items-center justify-between py-4 gap-2 lg:gap-4">
-        <div className="flex items-center gap-2">
-          <Link
-            href="/"
-            className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
-          >
-            <Image
-              src="/header/house.png"
-              alt="phone"
-              width={isMobile ? 40 : 70}
-              height={isMobile ? 40 : 70}
-              priority
-            />
-            <p className="text-xs lg:text-base flex flex-col">
-              <span className="mr-1">Гостевой дом</span>
-              <span>«Кредо»</span>
-            </p>
-          </Link>
-          <div className="flex items-center gap-2">
-            <Phone />
+      <div className="flex flex-col md:flex-row items-center justify-center py-1 gap-2 lg:gap-4">
+        <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:w-full">
+          <div className="flex items-center justify-between gap-2 w-full">
+            <Link
+              href="/"
+              className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
+            >
+              <Image
+                src="/header/house.png"
+                alt="phone"
+                width={isMobile ? 40 : 70}
+                height={isMobile ? 40 : 70}
+                priority
+              />
+              <p className="text-xs lg:text-base flex flex-col">
+                <span className="mr-1">Гостевой дом</span>
+                <span>«Кредо»</span>
+              </p>
+            </Link>
+
+            <div className="flex items-center gap-2 xl:gap-8 md:mx-auto">
+              <Placemark className="hidden lg:flex" />
+              <Phone />
+            </div>
           </div>
-        </div>
 
-        <div className="flex items-center gap-2 hidden xl:flex">
-          <Placemark />
-        </div>
-
-        <div className="flex items-center gap-2">
-          <iframe
-            src="https://yandex.ru/sprav/widget/rating-badge/69363274872"
-            width="150"
-            height="50"
-          ></iframe>
-          <Button
-            className="w-full px-2 py-1 text-xs md:text-base"
-            onClick={() => handleClick(howToBookRef)}
-          >
-            Забронировать
-          </Button>
+          <div className="flex items-center justify-between gap-2">
+            <iframe
+              src="https://yandex.ru/sprav/widget/rating-badge/69363274872"
+              width="150"
+              height="50"
+            ></iframe>
+            <Button
+              className="w-full px-2 py-1 text-xs md:text-base"
+              onClick={() => handleClick(howToBookRef)}
+            >
+              Забронировать
+            </Button>
+          </div>
         </div>
       </div>
     </Container>

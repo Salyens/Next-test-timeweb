@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import data from "@/data.json";
 import classNames from "classnames";
+import useDevice from "@/hooks/useDevice";
 
 const Phone = ({
   className,
@@ -11,6 +14,8 @@ const Phone = ({
   showIcon?: boolean;
 }) => {
   const { phone } = data.contact;
+  const { isMobile } = useDevice();
+
   return (
     <a
       className={classNames(
@@ -24,8 +29,8 @@ const Phone = ({
           <Image
             src="/icons/phone.png"
             alt="phone"
-            width={25}
-            height={25}
+            width={isMobile ? 13 : 25}
+            height={isMobile ? 13 : 25}
           />
         </div>
       )}

@@ -49,6 +49,7 @@ const Header = () => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
+    setIsOpen(false);
   };
 
   return (
@@ -63,7 +64,7 @@ const Header = () => {
         >
           <div
             className={classNames(
-              "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10",
+              "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200",
               {
                 "absolute top-full left-0 w-full bg-secondary":
                   isOpen,
