@@ -22,13 +22,13 @@ const Rooms = () => {
     <Container>
       <DivToScroll name="rooms" />
       <Title title="Номера" />
+      <div ref={ref}></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {rooms.map((room) => {
-          delay += 0.1;
+          delay += 0.2;
           return (
             <MotionDiv
               key={room.id}
-              ref={ref}
               initial={{ opacity: 0 }}
               animate={
                 isInView ? { opacity: 1 } : { opacity: 0 }

@@ -22,7 +22,7 @@ const OneReview = ({ slide }: OneReviewProps) => {
 
         {slide.name}
       </h2>
-      <div className="text-sm border border-gray-200 p-4 md:p-8 min-h-[220px] flex gap-4 items-start flex-col">
+      <div className="text-sm border border-gray-200 p-4 md:p-8 min-h-[220px] flex gap-4 items-start flex-col h-full">
         <p className="flex gap-4 items-start">
           <Image
             src="/icons/double_quotes.svg"
