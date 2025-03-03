@@ -119,9 +119,14 @@ const Header = () => {
             </Button>
           </MotionDiv>
           {isMobile && (
-            <button
-              className="mx-6"
-              onClick={() => setIsOpen(!isOpen)}
+            <MotionDiv
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2 }}
+              className="flex items-center mx-6"
+            >
+              <button
+                onClick={() => setIsOpen(!isOpen)}
             >
               <Image
                 src="/icons/menu-burger.svg"
@@ -129,7 +134,8 @@ const Header = () => {
                 width={24}
                 height={24}
               />
-            </button>
+              </button>
+            </MotionDiv>
           )}
         </Container>
       </div>
