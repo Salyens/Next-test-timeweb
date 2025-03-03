@@ -7,6 +7,7 @@ import React from "react";
 const OneRoom = ({ room }: { room: Room }) => {
   return (
     <Link
+      id={room.id.toString()}
       href={`/room/${room.id}`}
       className="group flex flex-col gap-2 font-bold  p-4 border cursor-pointer"
     >

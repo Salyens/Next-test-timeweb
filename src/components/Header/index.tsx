@@ -13,13 +13,23 @@ import classNames from "classnames";
 import useDevice from "@/hooks/useDevice";
 import { RefContext } from "../Context/RefContext";
 import HeaderTop from "./HeaderTop";
+import {
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useDevice();
+
   const menuRef = useRef<HTMLDivElement>(null);
-  const { roomsRef, aboutRef, reviewsRef, contactRef, howToBookRef } =
-    useContext(RefContext);
+  const {
+    roomsRef,
+    aboutRef,
+    reviewsRef,
+    contactRef,
+    howToBookRef,
+  } = useContext(RefContext);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -42,6 +52,21 @@ const Header = () => {
       );
     };
   }, []);
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const roomId = searchParams.get("roomId");
+    if (roomId) {
+      const roomElement = document.getElementById(roomId);
+      if (roomElement) {
+        roomElement.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }
+  }, [searchParams]);
 
   const handleClick = (
     ref: React.RefObject<HTMLDivElement | null>
@@ -85,7 +110,9 @@ const Header = () => {
             <Button onClick={() => handleClick(reviewsRef)}>
               Отзывы
             </Button>
-            <Button onClick={() => handleClick(howToBookRef)}>
+            <Button
+              onClick={() => handleClick(howToBookRef)}
+            >
               Как забронировать
             </Button>
           </div>
