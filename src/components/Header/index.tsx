@@ -6,7 +6,6 @@ import React, {
   useEffect,
   useRef,
   useContext,
-  Suspense,
 } from "react";
 import Button from "../Button";
 import Container from "../Container";
@@ -55,15 +54,27 @@ const Header = () => {
 
   useEffect(() => {
     const roomId = sessionStorage.getItem("roomId");
+    const scrollToBooking = sessionStorage.getItem(
+      "scrollToBooking"
+    );
     if (roomId) {
       const roomElement = document.getElementById(roomId);
+
       if (roomElement) {
         roomElement.scrollIntoView({
           behavior: "smooth",
           block: "center",
         });
+        sessionStorage.removeItem("roomId");
       }
-      sessionStorage.removeItem("roomId");
+    }
+
+    if (scrollToBooking) {
+      howToBookRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      sessionStorage.removeItem("scrollToBooking");
     }
   }, [searchParams]);
 
@@ -125,15 +136,13 @@ const Header = () => {
               transition={{ duration: 2 }}
               className="flex items-center mx-6"
             >
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-            >
-              <Image
-                src="/icons/menu-burger.svg"
-                alt="menu"
-                width={24}
-                height={24}
-              />
+              <button onClick={() => setIsOpen(!isOpen)}>
+                <Image
+                  src="/icons/menu-burger.svg"
+                  alt="menu"
+                  width={24}
+                  height={24}
+                />
               </button>
             </MotionDiv>
           )}

@@ -10,15 +10,22 @@ import useDevice from "@/hooks/useDevice";
 import Button from "@/components/Button";
 import Placemark from "@/components/common/Placemark";
 import { MotionDiv } from "@/components/MotionDiv";
+import { usePathname, useRouter } from "next/navigation";
 
 const HeaderTop = () => {
   const { isMobile } = useDevice();
   const { howToBookRef } = useContext(RefContext);
+  const pathname = usePathname();
+  const isRoomPage = pathname.includes("/room/");
+  const router = useRouter();
 
   const handleClick = (
     ref: React.RefObject<HTMLDivElement | null>
   ) => {
-    if (ref.current) {
+    if (isRoomPage) {
+      router.push("/");
+      sessionStorage.setItem("scrollToBooking", "true");
+    } else if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
