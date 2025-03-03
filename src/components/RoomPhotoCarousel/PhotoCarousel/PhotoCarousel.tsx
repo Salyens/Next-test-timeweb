@@ -48,7 +48,7 @@ const PhotoCarousel = (props: Props) => {
         <div className="embla__container">
           {slides.map((slide: any) => (
             <div
-              className="relative min-w-full h-fit h-[420px] sm:h-[500px] md:h-[600px]"
+              className="relative min-w-full h-[420px] sm:h-[500px] md:h-[600px]"
               key={slide}
             >
               <Image
