@@ -14,7 +14,6 @@ import useDevice from "@/hooks/useDevice";
 import { RefContext } from "../Context/RefContext";
 import HeaderTop from "./HeaderTop";
 import {
-  useRouter,
   useSearchParams,
 } from "next/navigation";
 
