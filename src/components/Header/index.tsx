@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useRef,
   useContext,
+  Suspense,
 } from "react";
 import Button from "../Button";
 import Container from "../Container";
@@ -13,13 +14,12 @@ import classNames from "classnames";
 import useDevice from "@/hooks/useDevice";
 import { RefContext } from "../Context/RefContext";
 import HeaderTop from "./HeaderTop";
-import {
-  useSearchParams,
-} from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useDevice();
+  const searchParams = useSearchParams();
 
   const menuRef = useRef<HTMLDivElement>(null);
   const {
@@ -51,8 +51,6 @@ const Header = () => {
       );
     };
   }, []);
-
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     const roomId = sessionStorage.getItem("roomId");

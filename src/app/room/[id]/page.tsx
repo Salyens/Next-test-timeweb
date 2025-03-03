@@ -2,8 +2,6 @@ import BackButton from "@/components/BackButton";
 import Container from "@/components/Container";
 import RoomPage from "@/components/pages/RoomPage/RoomPage";
 import data from "@/data.json";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export default async function page({
