@@ -5,6 +5,12 @@ import ReviewCarousel from "./ReviewCarousel";
 import DivToScroll from "../DivToScroll";
 import data from "@/data.json";
 
+const options = {
+  loop: true,
+  easing: "ease-in-out",
+  duration: 30,
+};
+
 const Reviews = () => {
   const { reviews } = data;
   return (
@@ -14,7 +20,7 @@ const Reviews = () => {
       <div className="border-t border-gray-200 py-2"></div>
       <ReviewCarousel
         slides={reviews}
-        options={{ loop: true }}
+        options={options}
         autoplay={true}
       />
     </Container>

@@ -19,10 +19,10 @@ const Rooms = () => {
 
   let delay = 0;
   return (
-    <Container>
+    <Container className="relative">
       <DivToScroll name="rooms" />
       <Title title="Номера" />
-      <div ref={ref}></div>
+      <div className="absolute top-0 left-0 w-full h-full" ref={ref}></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {rooms.map((room) => {
           delay += 0.2;

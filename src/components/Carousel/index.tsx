@@ -3,6 +3,8 @@ import EmblaCarousel from "../EmblaCarousel/EmblaCarousel/EmblaCarousel";
 
 const OPTIONS = {
   loop: true,
+  easing: "ease-in-out",
+  duration: 40,
 };
 
 const SLIDES = [
