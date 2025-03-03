@@ -49,8 +49,8 @@ export const PhotoDot = (props: any) => {
   return (
     <button type="button" {...restProps}>
       <Image
-        src={slide.src}
-        alt={slide.alt}
+        src={slide}
+        alt={slide}
         width={100}
         height={100}
       />

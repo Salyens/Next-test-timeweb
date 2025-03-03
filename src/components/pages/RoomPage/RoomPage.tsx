@@ -23,7 +23,7 @@ const RoomPage = ({ room }: { room: Room }) => {
           </ul>
         </div>
         <div className="lg:col-span-2">
-          <RoomPhotoCarousel />
+          <RoomPhotoCarousel slides={room.images} />
         </div>
       </div>
     </>

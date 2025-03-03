@@ -8,7 +8,6 @@ import Autoplay from "embla-carousel-autoplay";
 import useDevice from "@/hooks/useDevice";
 import classNames from "classnames";
 import {
-  DotButton,
   useDotButton,
 } from "@/components/EmblaCarousel/EmblaCarouselDotButton/EmblaCarouselDotButton";
 import {
@@ -49,13 +48,13 @@ const PhotoCarousel = (props: Props) => {
         <div className="embla__container">
           {slides.map((slide: any) => (
             <div
-              className="relative min-w-full h-[500px]"
-              key={slide.id}
+              className="relative min-w-full h-fit h-[420px] sm:h-[500px] md:h-[600px]"
+              key={slide}
             >
               <Image
-                src={slide.src}
-                alt={slide.alt}
-                style={{ objectFit: "cover" }}
+                src={slide}
+                alt={slide}
+                style={{ objectFit: "contain" }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill
                 priority
@@ -78,11 +77,11 @@ const PhotoCarousel = (props: Props) => {
           <div className="flex justify-center items-center gap-2 mt-4 overflow-x-auto">
             {slides.map((slide, index) => (
               <PhotoDot
-                key={slide.id}
+                key={slide}
                 onClick={() => onDotButtonClick(index)}
                 slide={slide}
                 className={classNames(
-                  "w-full h-full",
+                  "w-16 h-16 overflow-hidden",
                   index === selectedIndex
                     ? " border-4 border-secondary"
                     : ""
