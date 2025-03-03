@@ -1,3 +1,4 @@
+import BackButton from "@/components/BackButton";
 import Container from "@/components/Container";
 import RoomPage from "@/components/pages/RoomPage/RoomPage";
 import data from "@/data.json";
@@ -21,20 +22,7 @@ export default async function page({
 
   return (
     <Container className="mb-10">
-      <Link
-        className="flex w-36"
-        href={`/?roomId=${room.id}`}
-      >
-        <p className="underline mt-8 flex items-center gap-2 w-fit">
-          <Image
-            src="/icons/arrow-left.png"
-            alt="arrow-left"
-            width={20}
-            height={20}
-          />
-          Назад
-        </p>
-      </Link>
+      <BackButton roomId={room.id.toString()} />
       <RoomPage room={room} />
     </Container>
   );

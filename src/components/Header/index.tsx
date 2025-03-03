@@ -56,7 +56,7 @@ const Header = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const roomId = searchParams.get("roomId");
+    const roomId = sessionStorage.getItem("roomId");
     if (roomId) {
       const roomElement = document.getElementById(roomId);
       if (roomElement) {
@@ -65,6 +65,7 @@ const Header = () => {
           block: "center",
         });
       }
+      sessionStorage.removeItem("roomId");
     }
   }, [searchParams]);
 
@@ -78,7 +79,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className="w-full relative z-50 left-0">
       <HeaderTop />
       <div
         className="bg-secondary min-h-[52px] flex items-center relative"
@@ -89,7 +90,7 @@ const Header = () => {
         >
           <div
             className={classNames(
-              "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200",
+              "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 md:border-none",
               {
                 "absolute top-full left-0 w-full bg-secondary":
                   isOpen,

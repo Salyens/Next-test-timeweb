@@ -22,8 +22,9 @@ const HeaderTop = () => {
     }
   };
   return (
-    <Container>
-      <div className="flex flex-col md:flex-row items-center justify-center py-1 gap-2 lg:gap-4">
+    <div className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-sm md:h-[70px] flex items-center">
+      <Container>
+        <div className="flex flex-col md:flex-row items-center justify-center py-1 gap-2 lg:gap-4">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:w-full">
           <div className="flex items-center justify-between gap-2 w-full">
             <Link
@@ -33,8 +34,8 @@ const HeaderTop = () => {
               <Image
                 src="/header/house.png"
                 alt="phone"
-                width={isMobile ? 40 : 70}
-                height={isMobile ? 40 : 70}
+                width={isMobile ? 40 : 60}
+                height={isMobile ? 40 : 60}
                 priority
               />
               <p className="text-xs lg:text-base flex flex-col">
@@ -62,9 +63,10 @@ const HeaderTop = () => {
               Забронировать
             </Button>
           </div>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 
