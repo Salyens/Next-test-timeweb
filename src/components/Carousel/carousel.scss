@@ -4,10 +4,10 @@
 .embla__slide {
   position: relative;
   min-width: 100%;
-  height: calc(100vh - 134px);
+  height: calc(100vh - 120px);
 
   @media (max-width: 639px) {
-    height: calc(100vh - 182px);
+    height: calc(100vh - 155px);
   }
 }
 
