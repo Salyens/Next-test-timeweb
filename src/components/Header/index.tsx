@@ -82,7 +82,10 @@ const Header = () => {
     ref: React.RefObject<HTMLDivElement | null>
   ) => {
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+      ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
     setIsOpen(false);
   };
