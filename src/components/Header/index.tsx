@@ -30,6 +30,25 @@ const Header = () => {
     howToBookRef,
   } = useContext(RefContext);
 
+  const variants = {
+    open: {
+      clipPath: "inset(0% 0% 0% 0%)",
+      transition: {
+        type: "spring",
+        stiffness: 40,
+        restDelta: 2,
+      },
+    },
+    closed: {
+      clipPath: "inset(0% 0% 100% 0%)",
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
+    },
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -101,9 +120,9 @@ const Header = () => {
           className={isMobile ? "flex items-center" : ""}
         >
           <MotionDiv
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
+            initial="closed"
+            animate={isOpen ? "open" : "closed"}
+            variants={variants}
             className={classNames(
               "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 md:border-none",
               {

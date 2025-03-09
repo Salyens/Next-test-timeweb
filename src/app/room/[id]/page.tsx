@@ -10,7 +10,7 @@ export async function generateMetadata({
 }: {
   params: { id: string };
 }): Promise<Metadata> {
-  const { id } = params;
+  const { id } = await params;
   const room = data.rooms.find(
     (room) => room.id === Number(id)
   );
@@ -31,7 +31,7 @@ export default async function page({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const id = (await params).id;
+  const { id } = await params;
   const room = data.rooms.find(
     (room) => room.id === Number(id)
   );

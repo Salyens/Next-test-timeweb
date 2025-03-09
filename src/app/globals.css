@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* section {
+  scroll-snap-align: start;
+} */
+
 body {
   @apply text-main font-sans;
 }

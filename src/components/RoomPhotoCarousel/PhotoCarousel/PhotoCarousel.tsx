@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaCarouselType } from "embla-carousel";
 
@@ -31,12 +29,7 @@ const PhotoCarousel = (props: Props) => {
     autoplay ? [Autoplay({ delay: 5000 })] : []
   );
 
-  useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.reInit();
-  }, [emblaApi]);
-
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+  const { selectedIndex, onDotButtonClick } =
     useDotButton(emblaApi);
 
   const { onPrevButtonClick, onNextButtonClick } =
