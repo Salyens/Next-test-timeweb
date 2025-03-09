@@ -16,7 +16,7 @@ const Rooms = () => {
         <Title title="Номера" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {rooms.map((room) => {
-            delay += 0.2;
+            delay += 0.1;
             return (
               <MotionDiv
                 key={room.id}
