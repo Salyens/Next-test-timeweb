@@ -19,7 +19,7 @@ const Phone = ({
   return (
     <a
       className={classNames(
-        "flex items-center gap-2 text-xs lg:text-base",
+        "flex items-center gap-2 text-base",
         className
       )}
       href={`tel:${phone}`}

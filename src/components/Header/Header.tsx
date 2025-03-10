@@ -94,7 +94,7 @@ const Header = () => {
             animate={isOpen ? "open" : "closed"}
             variants={variants}
             className={classNames(
-              "flex items-center lg:gap-8 gap-4 justify-center py-4 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 text-white md:border-none text-sm font-bold tracking-[0.04em]",
+              "flex items-center lg:gap-8 gap-4 justify-center py-4 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 text-white md:border-none text-sm font-bold",
               {
                 "absolute top-full left-0 w-full bg-secondary":
                   isOpen,

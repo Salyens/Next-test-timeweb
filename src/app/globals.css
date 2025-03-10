@@ -7,18 +7,19 @@ html {
   scroll-behavior: smooth;
 }
 
-/* section {
-  scroll-snap-align: start;
-} */
-
 body {
   @apply text-main font-sans;
 }
 
 a {
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 a:hover {
-  opacity: 0.7;
+  opacity: 0.8;
+  scale: 1.1;
+}
+
+a:active {
+  scale: 0.9;
 }

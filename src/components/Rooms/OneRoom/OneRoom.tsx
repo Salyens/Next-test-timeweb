@@ -10,7 +10,6 @@ const OneRoom = ({ room }: { room: Room }) => {
       <MotionDiv
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
       >
         <Link

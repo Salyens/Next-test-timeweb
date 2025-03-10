@@ -79,6 +79,7 @@ const HeaderLinks = ({
           key={link.id}
           href={link.href}
           variants={isMobile ? itemVariants : itemVariants}
+          className="tracking-[0.04em]"
         >
           {link.text}
         </motion.a>

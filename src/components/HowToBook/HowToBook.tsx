@@ -15,7 +15,7 @@ const HowToBook = () => {
             </p>
             <Phone
               showIcon={false}
-              className="underline text-secondary inline"
+              className="underline text-secondary inline  px-2 py-1 text-sm lg:text-base"
             />
             <p className="inline">или напишите в</p>
             <a
@@ -43,7 +43,7 @@ const HowToBook = () => {
               href="https://vk.com/kredo_house_kislovodsk"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline text-secondary inline"
+              className="underline text-secondary inline px-2 py-1"
             >
               vk.com/kredo_house_kislovodsk
             </a>
