@@ -10,10 +10,10 @@ html {
 body {
   @apply text-main font-sans;
   background: linear-gradient(
-    95deg,
-    /* Diagonal gradient */ #d2b48c,
-    /* Light beige */ #c9ae8c,
-    /* Light brown */ #bd9273,
+    115deg,
+    /* Diagonal gradient */ #d6be9f,
+    /* Light beige */ #d4bb9d,
+    /* Light brown */ #c4a58f,
     /* Sienna */ #5a3e36 /* Dark brown */
   );
 }
