@@ -5,30 +5,21 @@ import React, {
   useState,
   useEffect,
   useRef,
-  useContext,
 } from "react";
-import Button from "../Button";
 import Container from "../Container";
 import classNames from "classnames";
 import useDevice from "@/hooks/useDevice";
-import { RefContext } from "../Context/RefContext";
 import HeaderTop from "./HeaderTop";
 import { useSearchParams } from "next/navigation";
 import { MotionDiv } from "../MotionDiv";
+import scrollToElementById from "@/utils/helpers/scrollToElementById";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useDevice();
   const searchParams = useSearchParams();
-
   const menuRef = useRef<HTMLDivElement>(null);
-  const {
-    roomsRef,
-    aboutRef,
-    reviewsRef,
-    contactRef,
-    howToBookRef,
-  } = useContext(RefContext);
 
   const variants = {
     open: {
@@ -40,7 +31,9 @@ const Header = () => {
       },
     },
     closed: {
-      clipPath: "inset(0% 0% 100% 0%)",
+      clipPath: isMobile
+        ? "inset(0% 0% 100% 0%)"
+        : "inset(0% 0% 0% 0%)",
       transition: {
         type: "spring",
         stiffness: 300,
@@ -80,34 +73,15 @@ const Header = () => {
       const roomElement = document.getElementById(roomId);
 
       if (roomElement) {
-        roomElement.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
+        scrollToElementById(`room-${roomId}`);
         sessionStorage.removeItem("roomId");
       }
     }
-
     if (scrollToBooking) {
-      howToBookRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
+      scrollToElementById("how-to-book");
       sessionStorage.removeItem("scrollToBooking");
     }
   }, [searchParams]);
-
-  const handleClick = (
-    ref: React.RefObject<HTMLDivElement | null>
-  ) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-    setIsOpen(false);
-  };
 
   return (
     <header className="w-full relative z-50 left-0">
@@ -124,7 +98,7 @@ const Header = () => {
             animate={isOpen ? "open" : "closed"}
             variants={variants}
             className={classNames(
-              "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 md:border-none",
+              "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 md:border-none text-sm font-bold tracking-[0.04em]",
               {
                 "absolute top-full left-0 w-full bg-secondary":
                   isOpen,
@@ -133,23 +107,36 @@ const Header = () => {
               }
             )}
           >
-            <Button onClick={() => handleClick(roomsRef)}>
+            <Link
+              className="cursor-pointer text-white"
+              href="#rooms"
+            >
               Номера
-            </Button>
-            <Button onClick={() => handleClick(aboutRef)}>
+            </Link>
+            <Link
+              className="cursor-pointer text-white"
+              href="#about"
+            >
               О нас
-            </Button>
-            <Button onClick={() => handleClick(contactRef)}>
+            </Link>
+            <Link
+              className="cursor-pointer text-white"
+              href="#map"
+            >
               Контакты
-            </Button>
-            <Button onClick={() => handleClick(reviewsRef)}>
+            </Link>
+            <Link
+              className="cursor-pointer text-white"
+              href="#reviews"
+            >
               Отзывы
-            </Button>
-            <Button
-              onClick={() => handleClick(howToBookRef)}
+            </Link>
+            <Link
+              className="cursor-pointer text-white"
+              href="#how-to-book"
             >
               Как забронировать
-            </Button>
+            </Link>
           </MotionDiv>
           {isMobile && (
             <MotionDiv

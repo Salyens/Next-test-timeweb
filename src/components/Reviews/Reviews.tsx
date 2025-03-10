@@ -2,7 +2,6 @@ import React from "react";
 import Container from "../Container";
 import Title from "../Title";
 import ReviewCarousel from "./ReviewCarousel";
-import DivToScroll from "../DivToScroll";
 import data from "@/data.json";
 
 const options = {
@@ -14,16 +13,17 @@ const options = {
 const Reviews = () => {
   const { reviews } = data;
   return (
-    <Container className="mb-10">
-      <DivToScroll name="reviews" />
-      <Title title="Отзывы" />
-      <div className="border-t border-gray-200 py-2"></div>
-      <ReviewCarousel
-        slides={reviews}
-        options={options}
-        autoplay={true}
-      />
-    </Container>
+    <section id="reviews">
+      <Container className="mb-10">
+        <Title title="Отзывы" />
+        <div className="border-t border-gray-200 py-2"></div>
+        <ReviewCarousel
+          slides={reviews}
+          options={options}
+          autoplay={true}
+        />
+      </Container>
+    </section>
   );
 };
 

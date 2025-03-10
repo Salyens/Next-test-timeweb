@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "../Container";
-import DivToScroll from "../DivToScroll";
 import Phone from "../common/Phone";
 import WA from "../common/WA";
 import VK from "../common/VK";
@@ -8,7 +7,6 @@ import VK from "../common/VK";
 const Footer = () => {
   return (
     <footer className="bg-footer text-footer-text py-4 text-sm md:text-base">
-      <DivToScroll name="contact" />
       <Container>
         <div className="flex flex-col gap-4 items-center pb-4">
           <div className="flex flex-col gap-2">

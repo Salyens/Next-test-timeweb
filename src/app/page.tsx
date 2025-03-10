@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/Header/Header";
 import { Suspense } from "react";
 import { Metadata } from "next";
 import MainPage from "@/components/pages/MainPage/MainPage";

@@ -2,7 +2,6 @@ import Head from "next/head";
 import "./globals.css";
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
-import RefContextProvider from "@/components/Context/RefContext";
 import "@/styles/index.scss";
 
 export const metadata: Metadata = {
@@ -24,12 +23,10 @@ export default function RootLayout({
         />
       </Head>
       <body className="flex flex-col min-h-screen mt-[106px] md:mt-[70px]">
-        <RefContextProvider>
-          {children}
-          <div className="mt-auto">
-            <Footer />
-          </div>
-        </RefContextProvider>
+        {children}
+        <div className="mt-auto">
+          <Footer />
+        </div>
       </body>
     </html>
   );

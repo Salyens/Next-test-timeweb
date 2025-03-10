@@ -118,11 +118,13 @@ const Map = () => {
   }, []);
 
   return (
-    <div
-      ref={mapContainerRef}
-      id="yandex-map"
-      style={{ width: "100%", height: "400px" }}
-    />
+    <section id="map">
+      <div
+        ref={mapContainerRef}
+        id="yandex-map"
+        style={{ width: "100%", height: "400px" }}
+      />
+    </section>
   );
 };
 
