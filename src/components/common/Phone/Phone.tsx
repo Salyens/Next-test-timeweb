@@ -25,12 +25,12 @@ const Phone = ({
       href={`tel:${phone}`}
     >
       {showIcon && (
-        <div className="bg-footer-icon rounded-full p-2 ">
+        <div className="bg-footer-icon rounded-full border-[1px] border-main p-2 ">
           <Image
             src="/icons/phone.png"
             alt="phone"
-            width={isMobile ? 13 : 25}
-            height={isMobile ? 13 : 25}
+            width={isMobile ? 13 : 20}
+            height={isMobile ? 13 : 20}
           />
         </div>
       )}
