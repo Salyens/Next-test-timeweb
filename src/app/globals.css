@@ -35,5 +35,6 @@ a:active {
 @media (hover: none) {
   a:hover {
     scale: 1; /* No scaling on hover for touch devices */
+    opacity: 1;
   }
 }
