@@ -107,7 +107,7 @@ const Header = () => {
               isOpen={isOpen}
               onSetIsOpen={setIsOpen}
               className={classNames(
-                "flex flex-col gap-4 items-center lg:flex-row lg:static text-white"
+                "flex flex-col gap-4 lg:gap-10 items-center lg:flex-row lg:static text-white"
               )}
             />
           </MotionDiv>

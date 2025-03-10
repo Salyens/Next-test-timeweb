@@ -19,13 +19,13 @@ const Phone = ({
   return (
     <a
       className={classNames(
-        "flex items-center gap-2",
+        "flex items-center gap-2 text-xs lg:text-base",
         className
       )}
       href={`tel:${phone}`}
     >
       {showIcon && (
-        <div className="bg-footer-icon rounded-full p-2">
+        <div className="bg-footer-icon rounded-full p-2 ">
           <Image
             src="/icons/phone.png"
             alt="phone"

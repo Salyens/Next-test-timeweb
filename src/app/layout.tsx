@@ -22,7 +22,7 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1"
         />
       </Head>
-      <body className="flex flex-col min-h-screen mt-[106px] md:mt-[70px]">
+      <body className="flex flex-col min-h-screen mt-[106px] md:mt-[65px]">
         {children}
         <div className="mt-auto">
           <Footer />

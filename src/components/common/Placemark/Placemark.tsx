@@ -5,10 +5,11 @@ import classNames from "classnames";
 
 const Placemark = ({
   className,
+  imgClassName,
 }: {
   className?: string;
+  imgClassName?: string;
 }) => {
-  const { isMobile } = useDevice();
   return (
     <div
       className={classNames(
@@ -16,13 +17,20 @@ const Placemark = ({
         className
       )}
     >
-      <Image
-        src="/icons/placemark.png"
-        alt="mail"
-        width={isMobile ? 15 : 40}
-        height={isMobile ? 15 : 40}
-        className="bg-footer-icon rounded-full p-1"
-      />
+      <div
+        className={classNames(
+          "relative w-10 h-10",
+          imgClassName
+        )}
+      >
+        <Image
+          src="/icons/placemark.png"
+          alt="mail"
+          style={{ objectFit: "contain" }}
+          fill
+          sizes="(max-width: 1024px) 15px, 40px"
+        />
+      </div>
       <span>г. Кисловодск, ул. Суворова 10</span>
     </div>
   );
