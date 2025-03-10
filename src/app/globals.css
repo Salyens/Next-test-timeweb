@@ -9,6 +9,13 @@ html {
 
 body {
   @apply text-main font-sans;
+  background: linear-gradient(
+    95deg,
+    /* Diagonal gradient */ #d2b48c,
+    /* Light beige */ #c9ae8c,
+    /* Light brown */ #bd9273,
+    /* Sienna */ #5a3e36 /* Dark brown */
+  );
 }
 
 a {
