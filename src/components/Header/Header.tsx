@@ -9,7 +9,6 @@ import HeaderTop from "./HeaderTop";
 import { useSearchParams } from "next/navigation";
 import { MotionDiv } from "../MotionDiv";
 import scrollToElementById from "@/utils/helpers/scrollToElementById";
-import Link from "next/link";
 import HeaderLinks from "./HeaderLinks/HeaderLinks";
 
 const Header = () => {
@@ -95,7 +94,7 @@ const Header = () => {
             animate={isOpen ? "open" : "closed"}
             variants={variants}
             className={classNames(
-              "flex items-center lg:gap-8 gap-2 justify-center py-2 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 text-white md:border-none text-sm font-bold tracking-[0.04em]",
+              "flex items-center lg:gap-8 gap-4 justify-center py-4 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 text-white md:border-none text-sm font-bold tracking-[0.04em]",
               {
                 "absolute top-full left-0 w-full bg-secondary":
                   isOpen,
@@ -104,7 +103,13 @@ const Header = () => {
               }
             )}
           >
-            <HeaderLinks />
+            <HeaderLinks
+              isOpen={isOpen}
+              onSetIsOpen={setIsOpen}
+              className={classNames(
+                "flex flex-col gap-4 items-center lg:flex-row lg:static text-white"
+              )}
+            />
           </MotionDiv>
           {isMobile && (
             <MotionDiv
