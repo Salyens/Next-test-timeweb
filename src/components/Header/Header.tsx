@@ -22,7 +22,7 @@ const Header = () => {
       clipPath: "inset(0% 0% 0% 0%)",
       transition: {
         type: "spring",
-        stiffness: 40,
+        stiffness: 60,
         restDelta: 2,
       },
     },

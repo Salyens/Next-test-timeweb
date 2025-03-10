@@ -39,21 +39,27 @@ interface Props {
 const itemVariants = {
   open: {
     y: 0,
+    transition: {
+      duration: 0.15,
+    },
   },
   closed: {
     y: 50,
+    transition: {
+      duration: 0.15,
+    },
   },
 };
 
 const containerVariants = {
   open: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.05,
     },
   },
   closed: {
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.03,
       staggerDirection: -1,
     },
   },
@@ -69,7 +75,9 @@ const HeaderLinks = ({
   return (
     <motion.div
       initial="closed"
-      animate={isMobile ? (isOpen ? "open" : "closed") : "open"}
+      animate={
+        isMobile ? (isOpen ? "open" : "closed") : "open"
+      }
       variants={containerVariants}
       className={className}
     >
