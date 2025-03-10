@@ -30,3 +30,10 @@ a:hover {
 a:active {
   scale: 0.9;
 }
+
+/* Disable scaling on hover for mobile devices */
+@media (hover: none) {
+  a:hover {
+    scale: 1; /* No scaling on hover for touch devices */
+  }
+}
