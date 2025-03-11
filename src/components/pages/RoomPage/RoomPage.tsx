@@ -20,10 +20,10 @@ const RoomPage = ({ room }: { room: Room }) => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-1">
           <p className="font-bold">В номере</p>
-          <ul>
+          <ul className="list-disc list-inside">
             {room?.facilities.map((facility) => (
-              <li className="text-sm ml-2" key={facility}>
-                - {facility}
+              <li className="text-sm ml-2 py-1 lg:py-2" key={facility}>
+                {facility}
               </li>
             ))}
           </ul>
