@@ -16,7 +16,7 @@ const Reviews = () => {
     <section id="reviews">
       <Container className="mb-10">
         <Title title="Отзывы" />
-        <div className="border-t border-gray-200 py-2"></div>
+        <div className="border-t-2 border-secondary py-2"></div>
         <ReviewCarousel
           slides={reviews}
           options={options}
