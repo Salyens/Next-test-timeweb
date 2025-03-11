@@ -41,7 +41,7 @@ const HeaderTop = () => {
       className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-sm flex items-center transition-height duration-300"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, delay: 0.1 }}
     >
       <Container>
         {isCollapsed ? (
