@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaCarouselType } from "embla-carousel";
@@ -15,7 +15,6 @@ import useDevice from "@/hooks/useDevice";
 import classNames from "classnames";
 import { MotionDiv } from "@/components/MotionDiv";
 import styles from "./embla.module.css";
-import { useScroll, useTransform } from "framer-motion";
 
 interface Props {
   slides: any[];
@@ -26,21 +25,9 @@ interface Props {
 const EmblaCarousel = (props: Props) => {
   const { slides, options, autoplay } = props;
   const { isMobile } = useDevice();
-  const ref = useRef<HTMLDivElement>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel(
     options,
     autoplay ? [Autoplay({ delay: 5000 })] : []
-  );
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"],
-  });
-
-  const yBg = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, 200]
   );
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -51,22 +38,14 @@ const EmblaCarousel = (props: Props) => {
 
   return (
     <section className={styles.embla}>
-      <div
-        className={styles.embla__viewport}
-        ref={emblaRef}
-      >
+      <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
           {slides.map((slide: any) => (
-            <div
-              className={styles.embla__slide}
-              key={slide.src}
-              ref={ref}
-            >
+            <div className={styles.embla__slide} key={slide.src}>
               <MotionDiv
                 initial={{ opacity: 0, scale: 0.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7 }}
-                style={{ y: yBg }}
                 className="bg-second-gray relative z-10 top-1/2 -translate-y-1/2 w-full lg:w-2/5 
              text-center p-4 lg:p-10 lg:left-4  "
               >
@@ -81,7 +60,6 @@ const EmblaCarousel = (props: Props) => {
                 src={slide.src}
                 alt={slide.alt}
                 style={{ objectFit: "cover" }}
-                objectPosition="center" 
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill
                 priority
