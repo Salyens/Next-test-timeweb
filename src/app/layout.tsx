@@ -20,6 +20,12 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1"
         />
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
       </Head>
       <body className="flex flex-col min-h-screen mt-[106px] md:mt-[65px]">
         {children}
