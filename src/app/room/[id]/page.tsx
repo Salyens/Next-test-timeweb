@@ -1,5 +1,6 @@
 import BackButton from "@/components/BackButton";
 import Container from "@/components/Container";
+import HowToBook from "@/components/HowToBook";
 import RoomPage from "@/components/pages/RoomPage/RoomPage";
 import data from "@/data.json";
 import { Metadata } from "next";
@@ -42,6 +43,9 @@ export default async function page({
     <Container className="mb-10">
       <BackButton roomId={room.id.toString()} />
       <RoomPage room={room} />
+      <div className="border-t border-secondary">
+        <HowToBook />
+      </div>
     </Container>
   );
 }

@@ -5,28 +5,12 @@ import Container from "@/components/Container";
 import Link from "next/link";
 import Image from "next/image";
 import Phone from "@/components/common/Phone";
-import Button from "@/components/Button";
 import Placemark from "@/components/common/Placemark";
 import { MotionDiv } from "@/components/MotionDiv";
-import { usePathname, useRouter } from "next/navigation";
-import scrollToElementById from "@/utils/helpers/scrollToElementById";
 import classNames from "classnames";
-
+import Button from "@/components/Button";
 const HeaderTop = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const pathname = usePathname();
-  const isRoomPage = pathname.includes("/room/");
-  const router = useRouter();
-
-  const handleClick = () => {
-    if (isRoomPage) {
-      router.push("/");
-      sessionStorage.setItem("scrollToBooking", "true");
-    } else {
-      router.push("/");
-      scrollToElementById("how-to-book");
-    }
-  };
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -124,12 +108,12 @@ const HeaderTop = () => {
                   width="150"
                   height="50"
                 ></iframe>
-                <Button
+                <Link
+                  href="#how-to-book"
                   className="w-full px-2 py-1 text-xs md:text-base"
-                  onClick={() => handleClick()}
                 >
-                  Забронировать
-                </Button>
+                  <Button>Забронировать</Button>
+                </Link>
               </div>
             </div>
           </div>

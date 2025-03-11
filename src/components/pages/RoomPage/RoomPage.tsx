@@ -9,6 +9,7 @@ const RoomPage = ({ room }: { room: Room }) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
+      className="mb-4"
     >
       <h2 className="text-xl md:text-2xl lg:text-3xl font-bold py-2 md:py-6">
         {room?.title}

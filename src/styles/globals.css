@@ -23,7 +23,6 @@ a {
 }
 
 a:hover {
-  opacity: 0.8;
   scale: 1.1;
 }
 
@@ -35,6 +34,5 @@ a:active {
 @media (hover: none) {
   a:hover {
     scale: 1; /* No scaling on hover for touch devices */
-    opacity: 1;
   }
 }

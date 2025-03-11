@@ -62,9 +62,7 @@ const Header = () => {
 
   useEffect(() => {
     const roomId = sessionStorage.getItem("roomId");
-    const scrollToBooking = sessionStorage.getItem(
-      "scrollToBooking"
-    );
+
     if (roomId) {
       const roomElement = document.getElementById(roomId);
 
@@ -72,10 +70,6 @@ const Header = () => {
         scrollToElementById(`room-${roomId}`);
         sessionStorage.removeItem("roomId");
       }
-    }
-    if (scrollToBooking) {
-      scrollToElementById("how-to-book");
-      sessionStorage.removeItem("scrollToBooking");
     }
   }, [searchParams]);
 
