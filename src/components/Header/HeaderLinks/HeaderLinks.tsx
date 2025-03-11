@@ -40,13 +40,13 @@ const itemVariants = {
   open: {
     y: 0,
     transition: {
-      duration: 0.15,
+      duration: 0.3,
     },
   },
   closed: {
     y: 50,
     transition: {
-      duration: 0.15,
+      duration: 0.3,
     },
   },
 };

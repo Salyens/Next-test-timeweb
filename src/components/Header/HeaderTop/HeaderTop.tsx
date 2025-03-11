@@ -9,6 +9,7 @@ import Placemark from "@/components/common/Placemark";
 import { MotionDiv } from "@/components/MotionDiv";
 import classNames from "classnames";
 import Button from "@/components/Button";
+
 const HeaderTop = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 

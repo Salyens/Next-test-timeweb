@@ -43,9 +43,9 @@ const EmblaCarousel = (props: Props) => {
           {slides.map((slide: any) => (
             <div className={styles.embla__slide} key={slide.src}>
               <MotionDiv
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2 }}
+                initial={{ opacity: 0, scale: 0.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7 }}
                 className="bg-second-gray relative z-10 top-2/3 -translate-y-1/2 w-full lg:w-2/5 
              text-center p-4 lg:p-10 lg:left-4  "
               >
