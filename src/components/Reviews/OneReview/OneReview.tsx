@@ -6,6 +6,7 @@ interface OneReviewProps {
     id: string;
     name: string;
     review: string;
+    image: string;
   };
 }
 const OneReview = ({ slide }: OneReviewProps) => {
@@ -13,7 +14,7 @@ const OneReview = ({ slide }: OneReviewProps) => {
     <div className="flex flex-col lg:w-[49%] w-full">
       <h2 className="text-md font-bold flex gap-4 items-center mb-4">
         <Image
-          src="/icons/brown-house.jpg"
+          src={slide.image}
           alt="user"
           width={70}
           height={70}

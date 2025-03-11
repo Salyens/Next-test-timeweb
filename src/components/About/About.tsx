@@ -16,9 +16,9 @@ const About = () => {
         >
           <Title title="О нас" />
 
-          <div className="relative w-full h-[50vh]">
+          <div className="relative w-full h-[60vh]">
             <Image
-              src="/about/1.jpg"
+              src="/about/2.jpg"
               alt="room"
               fill
               className="object-cover"
