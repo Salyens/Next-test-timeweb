@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-
+import styles from "./button.module.css";
 const Button = ({
   children,
   className,
@@ -13,7 +13,7 @@ const Button = ({
   return (
     <button
       {...otherProps}
-      className={classNames("button", className)}
+      className={classNames(styles.button, className)}
     >
       {children}
     </button>

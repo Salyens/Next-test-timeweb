@@ -1,0 +1,36 @@
+.embla {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+.embla__slide {
+  position: relative;
+  height: 100%;
+  display: flex;
+  min-width: 100%;
+  justify-content: space-between;
+}
+
+.embla__dots {
+  position: relative;
+  bottom: 0;
+  margin-top: 40px;
+}
+
+.embla__buttons {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-bottom: 13px;
+  top: 10%;
+  transform: none;
+  margin-left: auto;
+}

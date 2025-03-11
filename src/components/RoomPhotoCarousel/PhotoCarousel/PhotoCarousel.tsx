@@ -14,7 +14,7 @@ import {
   usePrevNextButtons,
 } from "@/components/EmblaCarousel/EmblaCarouselArrowButtons/EmblaCarouselArrowButtons";
 import { PhotoDot } from "../PhotoDot/PhotoDot";
-
+import styles from "./photocarousel.module.css";
 interface Props {
   slides: any[];
   options: any;
@@ -36,9 +36,9 @@ const PhotoCarousel = (props: Props) => {
     usePrevNextButtons(emblaApi as EmblaCarouselType);
 
   return (
-    <section className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <section className={styles.embla}>
+      <div className={styles.embla__viewport} ref={emblaRef}>
+        <div className={styles.embla__container}>
           {slides.map((slide: any) => (
             <div
               className="relative min-w-full h-[420px] sm:h-[500px] md:h-[600px]"
@@ -59,9 +59,9 @@ const PhotoCarousel = (props: Props) => {
 
       
 
-      <div className="embla__controls">
+      <div className={styles.embla__controls}>
         {!isMobile && (
-          <div className="embla__buttons embla__buttons-photo-carousel">
+          <div className={styles.embla__buttons}>
             <PrevButton onClick={onPrevButtonClick} />
             <NextButton onClick={onNextButtonClick} />
           </div>

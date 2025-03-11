@@ -14,6 +14,7 @@ import Autoplay from "embla-carousel-autoplay";
 import useDevice from "@/hooks/useDevice";
 import classNames from "classnames";
 import { MotionDiv } from "@/components/MotionDiv";
+import styles from "./embla.module.css";
 
 interface Props {
   slides: any[];
@@ -36,11 +37,11 @@ const EmblaCarousel = (props: Props) => {
     usePrevNextButtons(emblaApi as EmblaCarouselType);
 
   return (
-    <section className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <section className={styles.embla}>
+      <div className={styles.embla__viewport} ref={emblaRef}>
+        <div className={styles.embla__container}>
           {slides.map((slide: any) => (
-            <div className="embla__slide" key={slide.src}>
+            <div className={styles.embla__slide} key={slide.src}>
               <MotionDiv
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -68,23 +69,23 @@ const EmblaCarousel = (props: Props) => {
         </div>
       </div>
 
-      <div className="embla__controls">
+      <div className={styles.embla__controls}>
         {!isMobile && (
-          <div className="embla__buttons">
+          <div className={styles.embla__buttons}>
             <PrevButton onClick={onPrevButtonClick} />
             <NextButton onClick={onNextButtonClick} />
           </div>
         )}
         {slides.length > 1 && (
-          <div className="embla__dots">
+          <div className={styles.embla__dots}>
             {scrollSnaps.map((_, index) => (
               <DotButton
                 key={index}
                 onClick={() => onDotButtonClick(index)}
                 className={classNames(
-                  "embla__dot",
+                  styles.embla__dot,
                   index === selectedIndex
-                    ? " embla__dot--selected"
+                    ? styles["embla__dot--selected"]
                     : ""
                 )}
               />

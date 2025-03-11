@@ -15,6 +15,9 @@ import {
 import OneReview from "../OneReview";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaCarouselType } from "embla-carousel";
+import styles from "./reviewcarousel.module.css";
+import classNames from "classnames";
+
 interface Props {
   slides: any[];
   options: any;
@@ -48,21 +51,24 @@ const ReviewCarousel = (props: Props) => {
     : groupSlides(slides);
 
   return (
-    <section className="embla review-carousel">
+    <section className={styles.embla}>
       {!isMobile && (
-        <div className="embla__buttons">
+        <div className={styles.embla__buttons}>
           <PrevButton onClick={onPrevButtonClick} />
           <NextButton onClick={onNextButtonClick} />
         </div>
       )}
 
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container ">
+      <div
+        className={styles.embla__viewport}
+        ref={emblaRef}
+      >
+        <div className={styles.embla__container}>
           {isMobile ? (
             <>
               {slides.map((slide: any) => (
                 <div
-                  className="embla__slide"
+                  className={styles.embla__slide}
                   key={slide.id}
                 >
                   <OneReview key={slide.id} slide={slide} />
@@ -74,7 +80,7 @@ const ReviewCarousel = (props: Props) => {
               {slidesToRender.map(
                 (slideGroup: any, groupIndex: number) => (
                   <div
-                    className="embla__slide "
+                    className={styles.embla__slide}
                     key={`group-${groupIndex}`}
                   >
                     {slideGroup.map((slide: any) => (
@@ -91,16 +97,17 @@ const ReviewCarousel = (props: Props) => {
         </div>
       </div>
 
-      <div className="embla__controls review-carousel">
+      <div className={styles.embla__controls}>
         {slides.length > 1 && (
-          <div className="embla__dots">
+          <div className={styles.embla__dots}>
             {scrollSnaps.map((_, index) => (
               <DotButton
                 key={index}
                 onClick={() => onDotButtonClick(index)}
-                className={"embla__dot".concat(
+                className={classNames(
+                  styles.embla__dot,
                   index === selectedIndex
-                    ? " embla__dot--selected"
+                    ? styles["embla__dot--selected"]
                     : ""
                 )}
               />

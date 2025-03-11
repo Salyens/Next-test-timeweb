@@ -33,7 +33,7 @@ const Carousel = () => {
     <EmblaCarousel
       slides={SLIDES}
       options={OPTIONS}
-      // autoplay={true}
+      autoplay={true}
     />
   );
 };
