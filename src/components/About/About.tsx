@@ -24,7 +24,7 @@ const About = () => {
               className="object-cover"
             />
           </div>
-          <div className="flex flex-col gap-4 font-bold">
+          <div className="flex flex-col gap-4 font-bold mt-4">
             <p>
               Гостевой Дом Кредо расположен во второй
               курортной зоне, на тихой улице. До Колоннады,

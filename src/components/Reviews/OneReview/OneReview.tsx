@@ -35,7 +35,7 @@ const OneReview = ({ slide }: OneReviewProps) => {
         <a
           href="https://yandex.ru/maps/org/kredo/69363274872/reviews"
           target="_blank"
-          className="text-sm text-gray-500 ml-auto mt-auto"
+          className="text-sm text-gray-200 ml-auto mt-auto tracking-[0.04em]"
         >
           Смотреть все отзывы
         </a>

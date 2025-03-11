@@ -14,7 +14,7 @@ const RoomPage = ({ room }: { room: Room }) => {
       <h2 className="text-xl md:text-2xl lg:text-3xl font-bold py-2 md:py-6">
         {room?.title}
       </h2>
-      <p className="text-lg md:text-xl lg:text-2xl font-bold lg:text-end pb-2">
+      <p className="text-lg md:text-xl lg:text-2xl font-bold lg:text-end pb-2 italic">
         {room?.price} руб/сутки
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
