@@ -73,6 +73,8 @@ const HeaderLinks = ({
 }: Props) => {
   const { isMobile } = useDevice();
 
+  if (!isOpen && isMobile) return null;
+
   return (
     <motion.div
       initial="closed"

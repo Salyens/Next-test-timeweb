@@ -6,22 +6,37 @@ import Placemark from "@/components/common/Placemark";
 import { MotionDiv } from "@/components/MotionDiv";
 import classNames from "classnames";
 import Button from "@/components/Button";
+import useDevice from "@/hooks/useDevice";
 
 interface Props {
   isCollapsed?: boolean;
 }
 
 const HeaderTop = ({ isCollapsed = false }: Props) => {
+  const { isMobile } = useDevice();
+  const initialHeight =
+    isMobile && isCollapsed
+      ? 45
+      : isMobile && !isCollapsed
+      ? 106
+      : 65;
+
   return (
     <MotionDiv
+      initial={{
+        opacity: 0,
+        height: initialHeight,
+      }}
+      animate={{
+        opacity: 1,
+        height: initialHeight,
+      }}
+      transition={{ duration: 0.2 }}
       className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-sm flex items-center transition-height duration-300"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 0.1 }}
     >
       <Container>
         {isCollapsed ? (
-          <div className="flex items-center justify-center py-1 gap-2 lg:gap-4">
+          <div className="flex items-center justify-center py-1 gap-2 lg:gap-4 ">
             <Link
               href="/"
               className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
