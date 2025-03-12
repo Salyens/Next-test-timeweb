@@ -40,13 +40,13 @@ const itemVariants = {
   open: {
     y: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.2,
     },
   },
   closed: {
     y: 50,
     transition: {
-      duration: 0.3,
+      duration: 0.15,
     },
   },
 };
@@ -54,12 +54,13 @@ const itemVariants = {
 const containerVariants = {
   open: {
     transition: {
-      staggerChildren: 0.05,
+      delay: 0.4,
+      staggerChildren: 0.1,
     },
   },
   closed: {
     transition: {
-      staggerChildren: 0.03,
+      staggerChildren: 0.1,
       staggerDirection: -1,
     },
   },

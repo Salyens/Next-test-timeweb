@@ -46,16 +46,16 @@ const HeaderTop = ({ isCollapsed = false }: Props) => {
         ) : (
           <div
             className={classNames(
-              "flex flex-col md:flex-row items-center justify-center py-1 gap-2 lg:gap-4"
+              "flex flex-col lg:flex-row items-center justify-center py-1 gap-2 lg:gap-4 min-h-[65px]"
             )}
           >
-            <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:w-full">
+            <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between lg:w-full">
               <div className="flex items-center justify-between gap-2 w-full header-top">
                 <Link
                   href="/"
                   className="flex items-center gap-4 text-[22px] font-medium leading-[25px]"
                 >
-                  <div className="relative w-10 h-10 lg:w-14 lg:h-14">
+                  <div className="relative w-10 h-10 xl:w-10 xl:h-10">
                     <Image
                       src="/header/house.png"
                       alt="phone"
@@ -65,7 +65,7 @@ const HeaderTop = ({ isCollapsed = false }: Props) => {
                       priority
                     />
                   </div>
-                  <p className="text-xs lg:text-base flex flex-col">
+                  <p className="text-xs xl:text-base flex flex-col">
                     <span className="mr-1">
                       Гостевой дом
                     </span>

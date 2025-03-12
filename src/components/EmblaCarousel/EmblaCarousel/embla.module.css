@@ -14,13 +14,7 @@
   position: relative;
   min-width: 100%;
   transform: translate3d(0, 0, 0);
-  flex: 0 0 var(--slide-size);
-  padding-left: var(--slide-spacing);
-  height: calc(100vh - 115px);
-
-  @media (max-width: 639px) {
-    height: calc(100vh - 155px);
-  }
+  height: 100vh;
 }
 
 .embla__controls {

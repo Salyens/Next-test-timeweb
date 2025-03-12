@@ -38,10 +38,16 @@ const EmblaCarousel = (props: Props) => {
 
   return (
     <section className={styles.embla}>
-      <div className={styles.embla__viewport} ref={emblaRef}>
+      <div
+        className={styles.embla__viewport}
+        ref={emblaRef}
+      >
         <div className={styles.embla__container}>
           {slides.map((slide: any) => (
-            <div className={styles.embla__slide} key={slide.src}>
+            <div
+              className={styles.embla__slide}
+              key={slide.src}
+            >
               <MotionDiv
                 initial={{ opacity: 0, scale: 0.1 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -56,6 +62,7 @@ const EmblaCarousel = (props: Props) => {
                   {slide.description}
                 </p>
               </MotionDiv>
+
               <Image
                 src={slide.src}
                 alt={slide.alt}

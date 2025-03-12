@@ -1,4 +1,4 @@
-import HeaderTop from "@/components/Header/HeaderTop";
+import Header from "@/components/Header";
 
 export default function RoomLayout({
   children,
@@ -7,7 +7,7 @@ export default function RoomLayout({
 }>) {
   return (
     <>
-      <HeaderTop />
+      <Header showBottom={false} />
       {children}
     </>
   );

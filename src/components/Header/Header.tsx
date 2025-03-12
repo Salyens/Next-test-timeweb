@@ -11,7 +11,11 @@ import { MotionDiv } from "../MotionDiv";
 import scrollToElementById from "@/utils/helpers/scrollToElementById";
 import HeaderLinks from "./HeaderLinks/HeaderLinks";
 
-const Header = () => {
+const Header = ({
+  showBottom = true,
+}: {
+  showBottom?: boolean;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useDevice();
   const searchParams = useSearchParams();
@@ -22,8 +26,8 @@ const Header = () => {
       clipPath: "inset(0% 0% 0% 0%)",
       transition: {
         type: "spring",
-        stiffness: 60,
-        restDelta: 2,
+        stiffness: 400,
+        damping: 50,
       },
     },
     closed: {
@@ -98,65 +102,73 @@ const Header = () => {
     };
   }, []);
 
+  const y =
+    (isCollapsed && !isMobile) || (isCollapsed && isMobile)
+      ? 0
+      : !isCollapsed && isMobile
+      ? 106
+      : !isCollapsed && !isMobile
+      ? 65
+      : 0;
+
   return (
     <header
-      className={classNames(
-        "w-full relative z-50 left-0 mt-[106px] md:mt-[60px]",
-        {
-          "mt-[45px]": isCollapsed,
-          "md:mt-[42px]": isCollapsed,
-        }
-      )}
+      className={classNames("w-full absolute z-50 left-0")}
     >
       <HeaderTop isCollapsed={isCollapsed} />
-      <div
-        className="bg-secondary min-h-[52px] flex items-center relative"
-        ref={menuRef}
-      >
-        <Container
-          className={isMobile ? "flex items-center" : ""}
+      {showBottom && (
+        <MotionDiv
+          initial={{ y: 0 }}
+          animate={{ y: y }}
+          transition={{ duration: 0.3 }}
+          className="bg-secondary min-h-[45px] flex items-center relative"
+          ref={menuRef}
         >
-          <MotionDiv
-            initial="closed"
-            animate={isOpen ? "open" : "closed"}
-            variants={variants}
-            className={classNames(
-              "flex items-center lg:gap-8 gap-4 justify-center py-4 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 text-white md:border-none text-sm font-bold",
-              {
-                "absolute top-full left-0 w-full bg-secondary":
-                  isOpen,
-                hidden: isMobile && !isOpen,
-                flex: !isMobile || isOpen,
-              }
-            )}
+          <Container
+            className={isMobile ? "flex items-center" : ""}
           >
-            <HeaderLinks
-              isOpen={isOpen}
-              onSetIsOpen={setIsOpen}
-              className={classNames(
-                "flex flex-col gap-4 lg:gap-10 items-center lg:flex-row lg:static text-white"
-              )}
-            />
-          </MotionDiv>
-          {isMobile && (
             <MotionDiv
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2 }}
-              className="flex items-center mx-6"
+              initial="closed"
+              animate={isOpen ? "open" : "closed"}
+              variants={variants}
+              className={classNames(
+                "flex items-center lg:gap-8 gap-4 justify-center py-4 flex-col lg:flex-row lg:static absolute z-10 border-t border-gray-200 text-white md:border-none text-sm font-bold",
+                {
+                  "absolute top-full left-0 w-full bg-secondary":
+                    isOpen,
+                  hidden: isMobile && !isOpen,
+                  flex: !isMobile || isOpen,
+                }
+              )}
             >
-              <button onClick={() => setIsOpen(!isOpen)}>
-                <Image
-                  src="/icons/menu-burger.svg"
-                  alt="menu"
-                  width={24}
-                  height={24}
-                />
-              </button>
+              <HeaderLinks
+                isOpen={isOpen}
+                onSetIsOpen={setIsOpen}
+                className={classNames(
+                  "flex flex-col gap-4 lg:gap-10 items-center lg:flex-row lg:static text-white"
+                )}
+              />
             </MotionDiv>
-          )}
-        </Container>
-      </div>
+            {isMobile && (
+              <MotionDiv
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+                className="flex items-center mx-6"
+              >
+                <button onClick={() => setIsOpen(!isOpen)}>
+                  <Image
+                    src="/icons/menu-burger.svg"
+                    alt="menu"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+              </MotionDiv>
+            )}
+          </Container>
+        </MotionDiv>
+      )}
     </header>
   );
 };
