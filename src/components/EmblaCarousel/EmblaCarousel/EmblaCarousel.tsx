@@ -46,7 +46,7 @@ const EmblaCarousel = (props: Props) => {
                 initial={{ opacity: 0, scale: 0.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7 }}
-                className="bg-second-gray relative z-10 top-[65%] -translate-y-1/2 w-full lg:w-2/5 
+                className="bg-second-gray relative z-10 top-[60%] -translate-y-1/2 w-full lg:w-2/5 
              text-center p-4 lg:p-10 lg:left-4  "
               >
                 <h2 className="text-2xl md:text-4xl font-bold pb-2 md:pb-6">

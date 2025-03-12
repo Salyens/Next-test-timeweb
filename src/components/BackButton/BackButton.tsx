@@ -16,7 +16,7 @@ const BackButton = ({ roomId }: { roomId: string }) => {
       href={`/?roomId=${roomId}`}
       prefetch={true}
     >
-      <p className="underline mt-8 flex items-center gap-2 w-fit">
+      <p className="underline mt-8 mb-2 flex items-center gap-2 w-fit">
         <Image
           src="/icons/arrow-left.png"
           alt="arrow-left"

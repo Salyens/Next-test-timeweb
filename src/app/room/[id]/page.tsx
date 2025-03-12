@@ -40,7 +40,7 @@ export default async function page({
   if (!room) return;
 
   return (
-    <Container className="mb-10">
+    <Container className="mb-10 mt-[90px] md:mt-[60px]">
       <BackButton roomId={room.id.toString()} />
       <RoomPage room={room} />
       <div className="border-t border-secondary">
