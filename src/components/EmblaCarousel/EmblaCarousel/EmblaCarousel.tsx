@@ -50,8 +50,9 @@ const EmblaCarousel = (props: Props) => {
             >
               <MotionDiv
                 initial={{ opacity: 0, scale: 0.1 }}
-                animate={{ opacity: 1, scale: 1 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
                 className="bg-second-gray relative z-10 top-[60%] -translate-y-1/2 w-full lg:w-2/5 
              text-center p-4 lg:p-10 lg:left-4  "
               >
