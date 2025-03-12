@@ -8,10 +8,10 @@ import classNames from "classnames";
 import Button from "@/components/Button";
 
 interface Props {
-  isCollapsed: boolean;
+  isCollapsed?: boolean;
 }
 
-const HeaderTop = ({ isCollapsed }: Props) => {
+const HeaderTop = ({ isCollapsed = false }: Props) => {
   return (
     <MotionDiv
       className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-sm flex items-center transition-height duration-300"
