@@ -16,7 +16,7 @@ export default {
         "gray-border": "#41474e",
         "footer-text": "#a7a7a7",
         "footer-icon": "#f0f0f0",
-        "second-gray": "rgba(255, 255, 255, 0.6)",
+        "second-gray": "rgba(255, 255, 255, 0.46)",
       },
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],

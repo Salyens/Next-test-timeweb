@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { MotionDiv } from "@/components/MotionDiv";
 import { Room } from "@/types";
+import priceFormatter from "@/utils/helpers/priceFormatter";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,6 +16,7 @@ const OneRoom = ({ room }: { room: Room }) => {
         <Link
           id={room.id.toString()}
           href={`/room/${room.id}`}
+          prefetch={true}
           className="flex flex-col gap-2 font-bold p-4 border-2 border-secondary rounded-lg cursor-pointer"
         >
           <div className="relative w-full h-64">
@@ -29,7 +31,7 @@ const OneRoom = ({ room }: { room: Room }) => {
           <p className="text-sm md:min-h-[50px]">
             {room.title}
           </p>
-          <p className="text-xl">{room.price} руб.</p>
+          <p className="text-xl">{priceFormatter(room.price)} руб.</p>
           <Button>Подробнее</Button>
         </Link>
       </MotionDiv>

@@ -1,9 +1,10 @@
 import { MotionDiv } from "@/components/MotionDiv";
 import RoomPhotoCarousel from "@/components/RoomPhotoCarousel";
 import { Room } from "@/types";
-import React from "react";
+import priceFormatter from "@/utils/helpers/priceFormatter";
 
 const RoomPage = ({ room }: { room: Room }) => {
+
   return (
     <MotionDiv
       initial={{ opacity: 0 }}
@@ -15,14 +16,17 @@ const RoomPage = ({ room }: { room: Room }) => {
         {room?.title}
       </h2>
       <p className="text-lg md:text-xl lg:text-2xl font-bold lg:text-end pb-2 italic">
-        {room?.price} руб/сутки
+        {priceFormatter(room?.price)} руб/сутки
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-1">
           <p className="font-bold">В номере</p>
           <ul className="list-disc list-inside">
             {room?.facilities.map((facility) => (
-              <li className="text-sm ml-2 py-1 lg:py-2" key={facility}>
+              <li
+                className="text-sm ml-2 py-1 lg:py-2"
+                key={facility}
+              >
                 {facility}
               </li>
             ))}

@@ -73,9 +73,42 @@ const Header = () => {
     }
   }, [searchParams]);
 
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  useEffect(() => {
+    let lastScrollTop = 0;
+
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        setIsCollapsed(true);
+      } else {
+        // Scrolling up
+        setIsCollapsed(false);
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="w-full relative z-50 left-0">
-      <HeaderTop />
+    <header
+      className={classNames(
+        "w-full relative z-50 left-0 mt-[106px] md:mt-[60px]",
+        {
+          "mt-[45px]": isCollapsed,
+          "md:mt-[42px]": isCollapsed,
+        }
+      )}
+    >
+      <HeaderTop isCollapsed={isCollapsed} />
       <div
         className="bg-secondary min-h-[52px] flex items-center relative"
         ref={menuRef}

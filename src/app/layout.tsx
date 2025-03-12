@@ -27,7 +27,7 @@ export default function RootLayout({
           sizes="<generated>"
         />
       </Head>
-      <body className="flex flex-col min-h-screen mt-[106px] md:mt-[65px]">
+      <body className="flex flex-col min-h-screen">
         {children}
         <div className="mt-auto">
           <Footer />

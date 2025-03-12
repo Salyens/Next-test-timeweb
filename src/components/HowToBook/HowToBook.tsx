@@ -15,7 +15,7 @@ const HowToBook = () => {
             </p>
             <Phone
               showIcon={false}
-              className="underline text-secondary inline  px-2 py-1 text-sm lg:text-base"
+              className="underline text-secondary inline py-1 text-sm lg:text-base"
             />
             <p className="inline">или напишите в</p>
             <a
@@ -26,7 +26,7 @@ const HowToBook = () => {
             >
               Whatsapp
             </a>
-            <p className="text-xs inline">
+            <p className="inline">
               (предоставляется скидка{" "}
               <span className="font-bold text-base">
                 10%
@@ -43,7 +43,7 @@ const HowToBook = () => {
               href="https://vk.com/kredo_house_kislovodsk"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline text-secondary inline px-2 py-1"
+              className="underline text-secondary inline py-1"
             >
               vk.com/kredo_house_kislovodsk
             </a>

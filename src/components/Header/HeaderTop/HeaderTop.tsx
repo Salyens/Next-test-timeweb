@@ -1,6 +1,3 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
 import Container from "@/components/Container";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,32 +7,11 @@ import { MotionDiv } from "@/components/MotionDiv";
 import classNames from "classnames";
 import Button from "@/components/Button";
 
-const HeaderTop = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+interface Props {
+  isCollapsed: boolean;
+}
 
-  useEffect(() => {
-    let lastScrollTop = 0;
-
-    const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-        // Scrolling down
-        setIsCollapsed(true);
-      } else {
-        // Scrolling up
-        setIsCollapsed(false);
-      }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+const HeaderTop = ({ isCollapsed }: Props) => {
   return (
     <MotionDiv
       className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-sm flex items-center transition-height duration-300"
@@ -65,7 +41,7 @@ const HeaderTop = () => {
                 Гостевой дом «Кредо»
               </span>
             </Link>
-            <Phone />
+            <Phone className="text-xs lg:text-base" />
           </div>
         ) : (
           <div

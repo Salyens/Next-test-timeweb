@@ -14,6 +14,7 @@ const BackButton = ({ roomId }: { roomId: string }) => {
       className="flex w-36"
       onClick={() => setSessionStorage(roomId)}
       href={`/?roomId=${roomId}`}
+      prefetch={true}
     >
       <p className="underline mt-8 flex items-center gap-2 w-fit">
         <Image
