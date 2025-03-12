@@ -39,16 +39,12 @@ interface Props {
 const itemVariants = {
   open: {
     y: 0,
-    opacity: 1,
-    delay: 0.4,
     transition: {
       duration: 0.4,
     },
   },
   closed: {
-    y: 50,
-    opacity: 0,
-    delay: 0.4,
+    y: 200,
     transition: {
       duration: 0.4,
     },
