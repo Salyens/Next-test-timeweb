@@ -26,8 +26,8 @@ const Header = ({
       clipPath: "inset(0% 0% 0% 0%)",
       transition: {
         type: "spring",
-        stiffness: 400,
-        damping: 50,
+        stiffness: 300,
+        damping: 30,
       },
     },
     closed: {

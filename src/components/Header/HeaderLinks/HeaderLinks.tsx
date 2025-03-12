@@ -40,6 +40,7 @@ const itemVariants = {
   open: {
     y: 0,
     transition: {
+      transition: "linear",
       duration: 0.4,
     },
   },
