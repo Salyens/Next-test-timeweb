@@ -39,22 +39,19 @@ interface Props {
 const itemVariants = {
   open: {
     y: 0,
-    transition: {
-      duration: 0.2,
-    },
+    opacity: 1,
+    delay: 0.4,
   },
   closed: {
     y: 50,
-    transition: {
-      duration: 0.15,
-    },
+    opacity: 0,
+    delay: 0.4,
   },
 };
 
 const containerVariants = {
   open: {
     transition: {
-      delay: 0.4,
       staggerChildren: 0.1,
     },
   },
@@ -72,8 +69,6 @@ const HeaderLinks = ({
   className,
 }: Props) => {
   const { isMobile } = useDevice();
-
-  if (!isOpen && isMobile) return null;
 
   return (
     <motion.div

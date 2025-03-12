@@ -31,7 +31,7 @@ const HeaderTop = ({ isCollapsed = false }: Props) => {
         opacity: 1,
         height: initialHeight,
       }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
       className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-sm flex items-center transition-height duration-300"
     >
       <Container>
