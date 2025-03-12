@@ -120,7 +120,7 @@ const Header = ({
         <MotionDiv
           initial={{ y: 0 }}
           animate={{ y: y }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5 }}
           className="bg-secondary min-h-[45px] flex items-center relative"
           ref={menuRef}
         >
