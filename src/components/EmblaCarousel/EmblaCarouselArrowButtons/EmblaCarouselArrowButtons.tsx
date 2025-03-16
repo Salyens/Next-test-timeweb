@@ -4,6 +4,8 @@ import React, {
   useState,
 } from "react";
 import { EmblaCarouselType } from "embla-carousel";
+import styles from "../EmblaCarousel/embla.module.css";
+import classNames from "classnames";
 
 export const usePrevNextButtons = (
   emblaApi: EmblaCarouselType
@@ -53,13 +55,16 @@ export const PrevButton = (props: {
 
   return (
     <button
-      className="embla__button embla__button--prev"
+      className={classNames(
+        styles.embla__button,
+        styles["embla__button--prev"]
+      )}
       type="button"
       onClick={onClick}
       {...restProps}
     >
       <svg
-        className="embla__button__svg"
+        className={styles["embla__button__svg"]}
         viewBox="0 0 532 532"
       >
         <path
@@ -78,13 +83,16 @@ export const NextButton = (props: {
 
   return (
     <button
-      className="embla__button embla__button--next"
+      className={classNames(
+        styles.embla__button,
+        styles["embla__button--next"]
+      )}
       type="button"
       onClick={onClick}
       {...restProps}
     >
       <svg
-        className="embla__button__svg"
+        className={styles["embla__button__svg"]}
         viewBox="0 0 532 532"
       >
         <path

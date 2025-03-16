@@ -10,6 +10,37 @@
   display: flex;
   touch-action: pan-y pinch-zoom;
 }
+
+.embla__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+.embla__buttons {
+  position: absolute;
+  top: 55%;
+  width: calc(100% - 120px);
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+.embla__prev,
+.embla__next {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .embla__slide {
   position: relative;
   height: 100%;
@@ -17,7 +48,6 @@
   min-width: 100%;
   justify-content: space-between;
 }
-
 
 .embla__buttons-photo-carousel {
   top: 40%;

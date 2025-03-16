@@ -51,7 +51,7 @@ const ReviewCarousel = (props: Props) => {
     : groupSlides(slides);
 
   return (
-    <section className={styles.embla}>
+    <div className={styles.embla}>
       {!isMobile && (
         <div className={styles.embla__buttons}>
           <PrevButton onClick={onPrevButtonClick} />
@@ -115,7 +115,7 @@ const ReviewCarousel = (props: Props) => {
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 
