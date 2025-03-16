@@ -2,6 +2,7 @@ import Header from "@/components/Header/Header";
 import { Suspense } from "react";
 import { Metadata } from "next";
 import MainPage from "@/components/pages/MainPage/MainPage";
+import Spinner from "@/components/Spinner";
 
 export const metadata: Metadata = {
   title: "Номер",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Spinner />}>
       <Header />
       <MainPage />
     </Suspense>
