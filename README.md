@@ -1,18 +1,18 @@
-# Гостевой дом "Кредо"
+# Kredo Guest House
 
-Веб-сайт гостевого дома в Кисловодске.
+Website for a guest house in Kislovodsk.
 
-Сайт: [kredo-house.ru](https://kredo-house.ru)
+Website: [kredo-house.ru](https://kredo-house.ru)
 
-## О проекте
+## About
 
-- Современный сайт для гостевого дома
-- Адаптивный дизайн для всех устройств
-- Интерактивный карусель с фотографиями
-- Интеграция с Яндекс.Картами
-- Быстрая загрузка и оптимизация
+- Modern guest house website
+- Responsive design for all devices
+- Interactive photo carousel
+- Yandex Maps integration
+- Fast loading and optimization
 
-## Технологии
+## Technologies
 
 - Next.js
 - TypeScript
@@ -20,7 +20,7 @@
 - Framer Motion
 - Yandex Maps API
 
-## Установка
+## Installation
 
 ```bash
 git clone https://github.com/your-username/kredo-guest-house.git
@@ -28,6 +28,6 @@ npm install
 npm run dev
 ```
 
-## Контакты
+## Contact
 
-Кисловодск, ул. Суворова 10
+Kislovodsk, Suvorov St. 10
